@@ -1,0 +1,9 @@
+Controles:
+
+- Marcher : Flèches
+- Poser une bombe attirante : Clique droit
+- Poser une bombe repoussante : Clique gauche
+
+Objectif:
+
+Mettre le drapeau dans sa base.

@@ -28,8 +28,8 @@ OBJETS.
 Controles.
 
 	Déplacement: Z - Q - S - D
-	Poser une bombe attractive: M
-	Poser une bombe repulsive : L
+	Poser une bombe attractive: L
+	Poser une bombe repulsive : M
 
 
 La partie se termine lorsque une des équipes a mit le drapeau dans sa base.

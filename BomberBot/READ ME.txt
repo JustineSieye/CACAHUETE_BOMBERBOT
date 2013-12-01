@@ -1,0 +1,10 @@
+RENDU FINAL _ GROUPE CACAHUETE _ BOMBERBOT
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+3 Dossiers sont disponibles :
+
+- GAME : Contient le jeu BomberBot
+- TOOLS : Contient l'outil "ArenaMaker"
+- DOCUMENTS : Contient les documents sur le jeu et la jaquettes de celui-ci
+
+Les explications d'utilisation du jeu ou des outils sont présent dans différents READ ME du dossier " DOCUMENTS "

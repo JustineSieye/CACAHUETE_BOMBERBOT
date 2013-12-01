@@ -1,0 +1,22 @@
+ARENAMAKER est un constructeur d'arène.
+
+Utilisation
+
+	Lancer arenaMaker.exe
+
+	Choisir le nom de l'arène ( qui sera le nom du fichier généré )
+
+	Saisir le nombre de cases en largueur et en hauteur.
+
+	Cliquer sur " Generate grid ".
+
+	Une grille s'affiche. Elle représente une arène " vide ".
+
+	Pour placer des éléments il faut selectionner dans la liste l'objet que l'on souhaite placer. Puis cliquer sur la grille l'endroit sur lequel on souhaite poser cet objet.
+
+	Une fois l'arène terminée, cliquer sur "Generate Arena" et un fichier .bytes sera directement généré à l'endroit où est placer le programme arenaMaker.exe
+
+
+Utiliser l'arène générée
+
+	Placer le fichier .bytes dans Game/Assets/Resources/Arena, puis lancer le jeu.

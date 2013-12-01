@@ -1,0 +1,36 @@
+Bomberbot est un jeu de plateau. Le but est de parvenir a mettre le drapeau dans sa base à l'aide de différents moyen.
+
+Lancement du jeu.
+
+	Lancer deux instances du jeu. Une qui sera le Client et l'autre le Serveur.
+	Selectionner une arène. La partie démarre.
+
+OBJETS.
+
+	Cubes cassables ( marron ) : Cubes pouvant être détruit
+
+	Cubes incassables ( Gris ) : Cubes ne pouvant être détruit
+
+	Bases : Zones de couleur où il faut ramener le drapeau
+	Drapeau
+
+	Bombes attractive : 	Bombe de couleur rose permettant de déplacer le drapeau d'une case vers celle-ci.
+				Cette bombe ne permet pas de détruire des cubes ou d'éliminer un joueur
+				Les bombes se trouvant autour de celle-ci sont également attirées.
+				Quand elle explose, la bombe est représentée par une explosion de couleur bleue.
+				
+
+	Bombes repulsive : 	Bombes de couleur bleus permettant de déplacer le drapeau d'une case à l'opposé de celle-ci.
+				Cette bombe permet de détruite les cubes et éliminer les joueurs qui l'entoure.
+				Quand elle explose, la bombe est représentée par une explosion de couleur jaune.
+
+
+Controles.
+
+	Déplacement: Z - Q - S - D
+	Poser une bombe attractive: M
+	Poser une bombe repulsive : L
+
+
+La partie se termine lorsque une des équipes a mit le drapeau dans sa base.
+	

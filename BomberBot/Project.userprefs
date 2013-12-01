@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\PlaceBombe.cs">
+    <Files>
+      <File FileName="Assets\Script\PlaceBombe.cs" Line="57" Column="6" />
+      <File FileName="Assets\Script\Casse.cs" Line="44" Column="3" />
+      <File FileName="Assets\Script\FlagMovement.cs" Line="148" Column="4" />
+      <File FileName="Assets\Script\input.cs" Line="17" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

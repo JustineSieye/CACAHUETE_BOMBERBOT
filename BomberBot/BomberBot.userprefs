@@ -1,0 +1,19 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ArenaLoaderScript.cs">
+    <Files>
+      <File FileName="Assets\Scripts\ArenaViewerScript.cs" Line="307" Column="5" />
+      <File FileName="Assets\Scripts\ArenaSelectorArrowScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameSettingSingleton.cs" Line="252" Column="32" />
+      <File FileName="Assets\Scripts\TeamTextureUVMapScript.cs" Line="17" Column="25" />
+      <File FileName="Assets\Scripts\ArenaLoaderScript.cs" Line="162" Column="9" />
+      <File FileName="Assets\NewBehaviourScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EditArenaElementScript.cs" Line="29" Column="8" />
+      <File FileName="Assets\Scripts\PlayerNumberIteratorScript.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

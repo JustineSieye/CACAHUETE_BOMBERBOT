@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}</ProjectGuid>
+	<ProjectGuid>{E8296828-2042-5F19-A919-78E64759A927}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -52,6 +52,8 @@
      <Compile Include="Assets\Scripts\BomberBotAnimationScript.cs" />
      <Compile Include="Assets\Scripts\BomberBotInputManagerScript.cs" />
      <Compile Include="Assets\Scripts\BomberBotNetworkManagerScript.cs" />
+     <Compile Include="Assets\Scripts\ChangeQualityScript.cs" />
+     <Compile Include="Assets\Scripts\ChangeResolutionScript.cs" />
      <Compile Include="Assets\Scripts\ChooseRatioBackgroundScript.cs" />
      <Compile Include="Assets\Scripts\ChoseMenuScript.cs" />
      <Compile Include="Assets\Scripts\ClientSideMenuScript.cs" />

@@ -11,9 +11,7 @@ public class WhoIsTheWinnerScript : MonoBehaviour
 
 	void OnCollisionEnter(Collision col)
 	{
-		Debug.Log("something on me");
-		if(col.gameObject.CompareTag("Flag")){
-			Debug.Log("flag on me");
+		if(col.gameObject.tag == "Flag"){
 			GameSettingSingleton.Instance.WinnerTeam = _whoIsTheWinner;
 		}
 

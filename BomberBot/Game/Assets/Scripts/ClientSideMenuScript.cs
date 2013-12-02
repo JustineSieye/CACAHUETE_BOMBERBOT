@@ -7,8 +7,10 @@ public class ClientSideMenuScript : MonoBehaviour {
 	public Editable3DTextScript _ip;
 	public Editable3DTextScript _playerName;
 	// Use this for initialization
-	void Start () {
-		
+	void Awake () {
+		_port.TextContent = ""+GameSettingSingleton.Instance.PortToUse;
+		_ip.TextContent = GameSettingSingleton.Instance.IpToConnect;
+		_playerName.TextContent = GameSettingSingleton.Instance.PlayerName;
 	}
 	
 	// Update is called once per frame

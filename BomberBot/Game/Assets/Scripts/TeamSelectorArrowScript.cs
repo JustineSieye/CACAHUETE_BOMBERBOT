@@ -15,7 +15,8 @@ public class TeamSelectorArrowScript : MonoBehaviour
 	void Start()
 	{
 		_textMesh = this.GetComponent<TextMesh>();
-
+		Debug.Log(GameSettingSingleton.Instance.IndexTeamSelected);
+		GameSettingSingleton.Instance.IndexTeamSelected = 0;
 	}
 
 	void OnMouseUp()

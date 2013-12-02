@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+[RequireComponent(typeof(BoxCollider))]
 public class TextButtonScript : MonoBehaviour {
 	
 	public bool _isTextButton = true;
@@ -35,7 +36,8 @@ public class TextButtonScript : MonoBehaviour {
 			_textMesh.color = _hoverColor;
 		}else
 		{
-			//this.renderer.materials[0] = null;
+			this.GetComponentsInChildren<MeshRenderer>()[0].renderer.materials[0].color = _hoverColor;
+			this.GetComponentsInChildren<MeshRenderer>()[1].renderer.materials[0].color = _hoverColor;
 		}
 
 	}
@@ -48,14 +50,14 @@ public class TextButtonScript : MonoBehaviour {
 			
 		}else
 		{
-			//this.renderer.materials[0] = null;
+			this.GetComponentsInChildren<MeshRenderer>()[0].renderer.materials[0].color = _normalColor;
+			this.GetComponentsInChildren<MeshRenderer>()[1].renderer.materials[0].color = _normalColor;
 		}	
 
 	}
 	
 	void OnMouseUp()
 	{
-		Debug.Log(_actionButton);
 		GameSettingSingleton.Instance.CurrentMenuState = _actionButton;
 	
 	}

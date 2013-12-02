@@ -81,21 +81,7 @@ public class GameSettingSingleton
 			yellowHQRespawnPosition = value;
 		}
 	}
-	
-	private bool isInSettingMenu = false;
-	
-	public bool IsInSettingMenu
-	{
-		get {
-			return this.isInSettingMenu;
-		}
-		set {
-			isInSettingMenu = value;
-		}
-	}
-	
 
-	
 	public enum MenuState 
 	{
 		logout=0,
@@ -124,7 +110,7 @@ public class GameSettingSingleton
 
 	//player configuration
 
-	private string playerName;
+	private string playerName = "Player";
 	
 	public string PlayerName
 	{
@@ -136,32 +122,7 @@ public class GameSettingSingleton
 		}
 	}	
 
-	
-	private bool isConnected;
-	
-	public bool IsConnected
-	{
-		get {
-			return this.isConnected;
-		}
-		set {
-			isConnected = value;
-		}
-	}
-	
-	private bool isServer;
-	
-	public bool IsServer
-	{
-		get {
-			return this.isServer;
-		}
-		set {
-			isServer = value;
-		}
-	}
-
-	private int portToUse;
+	private int portToUse = 25001;
 
 	public int PortToUse {
 		get {
@@ -172,7 +133,7 @@ public class GameSettingSingleton
 		}
 	}
 
-	private string ipToConnect;
+	private string ipToConnect = "127.0.0.1";
 
 	public string IpToConnect 
 	{
@@ -288,5 +249,26 @@ public class GameSettingSingleton
 		}
 	}
 
+	private int currentResolutionIndex;
+
+	public int CurrentResolutionIndex {
+		get {
+			return currentResolutionIndex;
+		}
+		set {
+			currentResolutionIndex = value;
+		}
+	}
+
+	private Resolution[] availableResolutions;
+
+	public Resolution[] AvailableResolutions {
+		get {
+			return availableResolutions;
+		}
+		set {
+			availableResolutions = value;
+		}
+	}
 
 }

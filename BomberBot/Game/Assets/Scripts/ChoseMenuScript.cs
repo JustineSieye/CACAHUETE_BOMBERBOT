@@ -14,13 +14,11 @@ public class ChoseMenuScript : MonoBehaviour {
 	
 		if(GameSettingSingleton.Instance.CurrentMenuState == GameSettingSingleton.MenuState.clientMenu)
 		{
-			GameSettingSingleton.Instance.IsServer = false;
 			Application.LoadLevel("ClientMenu");
 		}
 		else{
 			if(GameSettingSingleton.Instance.CurrentMenuState == GameSettingSingleton.MenuState.serverMenu)
 			{
-				GameSettingSingleton.Instance.IsServer = true;
 				Application.LoadLevel("ServerMenu");
 			}
 		}

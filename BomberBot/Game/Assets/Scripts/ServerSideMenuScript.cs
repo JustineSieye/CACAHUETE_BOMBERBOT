@@ -5,7 +5,9 @@ public class ServerSideMenuScript : MonoBehaviour {
 
 	public Editable3DTextScript _port;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+
+		_port.TextContent = ""+GameSettingSingleton.Instance.PortToUse;
 	}
 	
 	// Update is called once per frame

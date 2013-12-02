@@ -6,7 +6,7 @@ public class Editable3DTextScript : MonoBehaviour {
 	private bool _isEditing;
 	public int _cursorIndex;
 	private TextMesh _textMesh ;
-	public string _textContent;
+	public string _textContent = "";
 
 	public string TextContent {
 		get {
@@ -27,7 +27,7 @@ public class Editable3DTextScript : MonoBehaviour {
 		_isEditing = false;
 		_cursorIndex = 0;
 		_textMesh = this.GetComponent<TextMesh>();
-		_textContent = _textMesh.text;
+		_textMesh.text = _textContent;
 	}
 	
 	// Update is called once per frame
@@ -73,7 +73,7 @@ public class Editable3DTextScript : MonoBehaviour {
 					{
 						if(Input.GetKeyDown(KeyCode.Delete))
 						{
-							if(_cursorIndex>0)
+							if(_textContent.Length>0)
 							{
 								Debug.Log("Delete " + _cursorIndex+" "+_textContent.Length);
 								_textContent = _textContent.Remove(_cursorIndex,1);
@@ -82,7 +82,7 @@ public class Editable3DTextScript : MonoBehaviour {
 						}
 						else
 						{
-							_strInput = Input.inputString;
+							_strInput = Input.inputString.Replace("\b","").Replace("\n","");
 							_textContent = _textContent.Insert(_cursorIndex,_strInput);
 							_cursorIndex += _strInput.Length;
 						}

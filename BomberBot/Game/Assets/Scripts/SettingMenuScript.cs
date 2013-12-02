@@ -3,36 +3,47 @@ using System.Collections;
 
 public class SettingMenuScript : MonoBehaviour {
 
-	
+	private bool _inSettingMenu = false;
 	// Use this for initialization
 	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void OnGUI () {
-		
-	switch(GameSettingSingleton.Instance.CurrentMenuState)
+
+		foreach( var child in this.GetComponentsInChildren<Transform>())
 		{
-			case(GameSettingSingleton.MenuState.clientMenu):
-				if(GUI.Button(new Rect(25,Screen.height-75,100,25),"Setting"))
-				{
-				GameSettingSingleton.Instance.CurrentMenuState = GameSettingSingleton.MenuState.settingMenu;
-				}
-			break;
-			
-		case(GameSettingSingleton.MenuState.settingMenu):
-			DisplaySettingMenu();
-			break;
+			if(child.renderer)
+			{
+				child.renderer.enabled = false;
+
+			}
+			if(child.collider)
+			{
+				child.collider.enabled = false;
+			}
 		}
 	}
 	
-	void DisplaySettingMenu()
-	{
-		if(GUI.RepeatButton(new Rect(100,100,100,25),"Graphics Setting"))
-			Debug.Log("GraphicsSetting");
+	// Update is called once per frame
+	void Update () {
+
+		if(Input.GetKeyDown(KeyCode.Escape))
+		{
+			_inSettingMenu = !_inSettingMenu;
+			foreach( var child in this.GetComponentsInChildren<Transform>())
+			{
+				if(child.renderer)
+				{
+					child.renderer.enabled = _inSettingMenu;
+				}
+				if(child.collider)
+				{
+					child.collider.enabled = _inSettingMenu;
+				}
+			}
+		}
 		
-		if(GUI.RepeatButton(new Rect(100,150,100,25),"Inputs Setting"))
-			Debug.Log("InputsSetting");
+	}
+
+	void DisplaySettingsMenu()
+	{
+
 	}
 }

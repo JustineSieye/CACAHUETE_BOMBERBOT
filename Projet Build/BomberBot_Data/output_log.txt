@@ -1,20 +1,339 @@
+Initialize engine version: 4.3.0f4 (e01000627d60)
+GfxDevice: creating device client; threaded=1
 Direct3D:
-    Version:  Direct3D 9.0c [igdumdim32.dll 9.18.10.3071]
-    Renderer: Intel(R) HD Graphics 4600
-    Vendor:   Intel
-    VRAM:     64 MB (via DXGI)
-    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=1 DF24=1 INTZ=1 RAWZ=0 NULL=1 RESZ=1 SlowINTZ=0
-desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
-<I> Initializing (RawInput).
+    Version:  Direct3D 9.0c [nvd3dum.dll 9.18.13.1144]
+    Renderer: NVIDIA GeForce GTX 660M  
+    Vendor:   NVIDIA
+    VRAM:     1994 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=0 INTZ=1 RAWZ=0 NULL=1 RESZ=0 SlowINTZ=0
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.047 seconds
+<RI> Initializing input.
 <RI> Input initialized.
-Non platform assembly: data-08230048 (this message is harmless)
-Non platform assembly: data-08296310 (this message is harmless)
-Non platform assembly: data-03387FD0 (this message is harmless)
-Non platform assembly: data-03389FE8 (this message is harmless)
-WIN !
+desktop: 1920x1080 60Hz; virtual: 2944x1080 at 0,0
+serverMenu
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
-FlagMovement:OnCollisionEnter(Collision)
+TextButtonScript:OnMouseUp() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\TextButtonScript.cs:58)
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+UnityEngine.HitInfo:SendMessage(String)
+UnityEngine.SendMouseEvents:SendEvents(Int32, HitInfo)
+UnityEngine.SendMouseEvents:DoSendMouseEvents(Int32, Int32)
  
-(Filename: C:/BuildAgent/work/842f9557127e852/Runtime/ExportGenerated/StandalonePlayer/UnityEngineDebug.cpp Line: 34)
+(Filename: C Line: 0)
+
+UnloadTime: 11.763760 ms
+System memory in use before: 11.3 MB.
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+System memory in use after: 11.2 MB.
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 368.
+Total: 1.147683 ms (FindLiveObjects: 0.018295 ms CreateObjectMapping: 0.008924 ms MarkObjects: 0.541267 ms  DeleteObjects: 0.006693 ms)
+
+startServer
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+TextButtonScript:OnMouseUp() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\TextButtonScript.cs:58)
+UnityEngine.GameObject:SendMessage(String, Object, SendMessageOptions)
+UnityEngine.HitInfo:SendMessage(String)
+UnityEngine.SendMouseEvents:SendEvents(Int32, HitInfo)
+UnityEngine.SendMouseEvents:DoSendMouseEvents(Int32, Int32)
+ 
+(Filename: C Line: 0)
+
+UnloadTime: 4.039651 ms
+System memory in use before: 12.0 MB.
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+System memory in use after: 11.1 MB.
+
+Unloading 367 unused Assets to reduce memory usage. Loaded Objects now: 479.
+Total: 1.541252 ms (FindLiveObjects: 0.026327 ms CreateObjectMapping: 0.047299 ms MarkObjects: 0.098615 ms  DeleteObjects: 0.817925 ms)
+
+startServer
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+GraphicsSettingMenuScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\GraphicsSettingMenuScript.cs:15)
+ 
+(Filename: C Line: 0)
+
+width20
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+ArenaLoaderScript:RPC_GenerateArena(Byte[]) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:68)
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+ArenaLoaderScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:37)
+ 
+(Filename: C Line: 0)
+
+height16
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+ArenaLoaderScript:RPC_GenerateArena(Byte[]) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:69)
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+ArenaLoaderScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:37)
+ 
+(Filename: C Line: 0)
+
+Player AllocatedID: 7 connected from 127.0.0.1:53133
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BomberBotInputManagerScript:RPC_SendPlayerConfToServer(String, Int32, NetworkMessageInfo) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\BomberBotInputManagerScript.cs:332)
+ 
+(Filename: C Line: 0)
+
+There are now 1 players.
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+BomberBotInputManagerScript:RPC_SendPlayerConfToServer(String, Int32, NetworkMessageInfo) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\BomberBotInputManagerScript.cs:333)
+ 
+(Filename: C Line: 0)
+
+something on me
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+WhoIsTheWinnerScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\WhoIsTheWinnerScript.cs:14)
+ 
+(Filename: C Line: 0)
+
+something on me
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+WhoIsTheWinnerScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\WhoIsTheWinnerScript.cs:14)
+ 
+(Filename: C Line: 0)
+
+something on me
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+WhoIsTheWinnerScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\WhoIsTheWinnerScript.cs:14)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+left move bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:MoveBomb(String) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:155)
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:87)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something on me
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+WhoIsTheWinnerScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\WhoIsTheWinnerScript.cs:14)
+ 
+(Filename: C Line: 0)
+
+something on me
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+WhoIsTheWinnerScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\WhoIsTheWinnerScript.cs:14)
+ 
+(Filename: C Line: 0)
+
+something on me
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+WhoIsTheWinnerScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\WhoIsTheWinnerScript.cs:14)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+something collids with this bomb
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBombScript:OnCollisionEnter(Collision) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBombScript.cs:78)
+ 
+(Filename: C Line: 0)
+
+Couldn't send RPC function 'RPC_ClientPlayerUpdate'
+
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+BomberBotInputManagerScript:FixedUpdate() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\BomberBotInputManagerScript.cs:272)
+
+[C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp line 2458] 
+(Filename: C Line: 0)
 

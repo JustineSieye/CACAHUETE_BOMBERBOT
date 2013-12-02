@@ -3,12 +3,14 @@ using System.Collections;
 using UnityEngine;
 
 
-public class GameSettingSingleton{
+public class GameSettingSingleton
+{
 
 	private static GameSettingSingleton instance;
 	
 
-	public GameSettingSingleton(){
+	public GameSettingSingleton()
+	{
 		if (instance != null)
 		{
 			Debug.LogError ("Cannot have two instances of singleton. Self destruction in 3...");
@@ -40,7 +42,8 @@ public class GameSettingSingleton{
 	private ArrayList greenHQRespawnPosition = new ArrayList();
 	private ArrayList blueHQRespawnPosition = new ArrayList();
 	
-	public ArrayList BlueHQRespawnPosition {
+	public ArrayList BlueHQRespawnPosition 
+	{
 		get {
 			return this.blueHQRespawnPosition;
 		}
@@ -49,7 +52,8 @@ public class GameSettingSingleton{
 		}
 	}
 
-	public ArrayList GreenHQRespawnPosition {
+	public ArrayList GreenHQRespawnPosition 
+	{
 		get {
 			return this.greenHQRespawnPosition;
 		}
@@ -58,7 +62,8 @@ public class GameSettingSingleton{
 		}
 	}
 
-	public ArrayList RedHQRespawnPosition {
+	public ArrayList RedHQRespawnPosition
+	{
 		get {
 			return this.redHQRespawnPosition;
 		}
@@ -67,7 +72,8 @@ public class GameSettingSingleton{
 		}
 	}
 
-	public ArrayList YellowHQRespawnPosition {
+	public ArrayList YellowHQRespawnPosition
+	{
 		get {
 			return this.yellowHQRespawnPosition;
 		}
@@ -78,7 +84,8 @@ public class GameSettingSingleton{
 	
 	private bool isInSettingMenu = false;
 	
-	public bool IsInSettingMenu {
+	public bool IsInSettingMenu
+	{
 		get {
 			return this.isInSettingMenu;
 		}
@@ -89,8 +96,9 @@ public class GameSettingSingleton{
 	
 
 	
-	public enum MenuState {
-		invalid=0,
+	public enum MenuState 
+	{
+		logout=0,
 		mainMenu=1,
 		clientMenu=2,
 		serverMenu=3,
@@ -104,7 +112,8 @@ public class GameSettingSingleton{
 	
 	private MenuState currentMenuState;
 	
-	public MenuState CurrentMenuState {
+	public MenuState CurrentMenuState
+	{
 		get {
 			return this.currentMenuState;
 		}
@@ -117,7 +126,8 @@ public class GameSettingSingleton{
 
 	private string playerName;
 	
-	public string PlayerName {
+	public string PlayerName
+	{
 		get {
 			return this.playerName;
 		}
@@ -125,20 +135,12 @@ public class GameSettingSingleton{
 			playerName = value;
 		}
 	}	
-	private Color playerTeam = Color.white;
-	
-	public Color PlayerTeam {
-		get {
-			return this.playerTeam;
-		}
-		set {
-			playerTeam = value;
-		}
-	}
+
 	
 	private bool isConnected;
 	
-	public bool IsConnected {
+	public bool IsConnected
+	{
 		get {
 			return this.isConnected;
 		}
@@ -149,7 +151,8 @@ public class GameSettingSingleton{
 	
 	private bool isServer;
 	
-	public bool IsServer {
+	public bool IsServer
+	{
 		get {
 			return this.isServer;
 		}
@@ -171,7 +174,8 @@ public class GameSettingSingleton{
 
 	private string ipToConnect;
 
-	public string IpToConnect {
+	public string IpToConnect 
+	{
 		get {
 			return ipToConnect;
 		}
@@ -180,23 +184,29 @@ public class GameSettingSingleton{
 		}
 	}
 
+	private Color[] teamColor = {Color.green,Color.blue, Color.red, Color.yellow};
 
+	public Color[] TeamColor
+	{
+		get {
+			return teamColor;
+		}
+	}
 
 	private string[] team = {"green","blue","red","yellow"};
 
-	public string[] Team {
+	public string[] Team 
+	{
 		get {
 			return team;
-		}
-		set {
-			team = value;
 		}
 	}
 
 
 	private int indexTeamSelected = 0;
 
-	public int IndexTeamSelected {
+	public int IndexTeamSelected 
+	{
 		get {
 			return indexTeamSelected;
 		}
@@ -207,7 +217,8 @@ public class GameSettingSingleton{
 
 	private TextAsset[] arenaFileList = Resources.LoadAll<TextAsset>("Arena") ;
 
-	public TextAsset[] ArenaFileList {
+	public TextAsset[] ArenaFileList 
+	{
 		get {
 			return arenaFileList;
 		}
@@ -218,7 +229,8 @@ public class GameSettingSingleton{
 
 	private int indexArenaSelected = 0;
 
-	public int IndexArenaSelected {
+	public int IndexArenaSelected 
+	{
 		get {
 			return indexArenaSelected;
 		}
@@ -229,7 +241,8 @@ public class GameSettingSingleton{
 
 	private byte[] currentLoadedArena;
 	
-	public byte[] CurrentLoadedArena {
+	public byte[] CurrentLoadedArena 
+	{
 		get {
 			return currentLoadedArena;
 		}
@@ -238,9 +251,10 @@ public class GameSettingSingleton{
 		}
 	}
 
-	private int maxPlayerNumber;
+	private int maxPlayerNumber = 10;
 
-	public int MaxPlayerNumber {
+	public int MaxPlayerNumber 
+	{
 		get {
 			return maxPlayerNumber;
 		}
@@ -251,7 +265,8 @@ public class GameSettingSingleton{
 
 	private bool updateArenaViewer = false;
 
-	public bool UpdateArenaViewer {
+	public bool UpdateArenaViewer
+	{
 		get {
 			return updateArenaViewer;
 		}
@@ -259,5 +274,19 @@ public class GameSettingSingleton{
 			updateArenaViewer = value;
 		}
 	}
+
+	public enum Winner : int {none = 0,green = 1,blue = 2, red = 3, yellow = 4};
+
+	private Winner winnerTeam = Winner.none;
+
+	public Winner WinnerTeam {
+		get {
+			return winnerTeam;
+		}
+		set {
+			winnerTeam = value;
+		}
+	}
+
 
 }

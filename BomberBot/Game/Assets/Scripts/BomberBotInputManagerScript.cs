@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(NetworkView))]
-public class BomberBotInputManagerScript : MonoBehaviour {
+public class BomberBotInputManagerScript : MonoBehaviour
+{
 	
 	//player prefab
 	[SerializeField]
@@ -40,7 +41,7 @@ public class BomberBotInputManagerScript : MonoBehaviour {
 	{
 		
 		//*********Player Components***********//
-		
+
 		private Transform _bomberbotTransform;
 		
 		public Transform BomberbotTransform {
@@ -75,7 +76,34 @@ public class BomberBotInputManagerScript : MonoBehaviour {
 				_bomberbotNetPlayer = value;
 			}
 		}
-		
+
+		//Player Team
+
+		private int _playerTeamIndex;
+
+		public int PlayerTeamIndex {
+			get {
+				return _playerTeamIndex;
+			}
+			set {
+				_playerTeamIndex = value;
+			}
+		}
+
+
+		//Player Name
+
+		private string _playerName;
+
+		public string PlayerName {
+			get {
+				return _playerName;
+			}
+			set {
+				_playerName = value;
+			}
+		}
+
 		//*************************************//
 		
 		//*********Player intentions***********//
@@ -94,8 +122,7 @@ public class BomberBotInputManagerScript : MonoBehaviour {
 		
 		//**********Player stats**************//
 		
-		public int _maxAvailableBomb = 1;
-		//public byte _bonusMask = 0x00;
+		public int _maxAvailableBomb = 2;
 		public int _speedBonus = 1;
 		
 		//*************************************//
@@ -129,63 +156,63 @@ public class BomberBotInputManagerScript : MonoBehaviour {
 		if (Network.isClient)
 		{
 			//go forward
-			if (Input.GetKeyDown(KeyCode.UpArrow))
+			if (Input.GetKeyDown(KeyCode.Z))
 			{
-				_myNetworkView.RPC("PlayerWantToGoForward", RPCMode.Server, Network.player, true);
+				_myNetworkView.RPC("RPC_PlayerWantToGoForward", RPCMode.Server, Network.player, true);
 			}
-			if (Input.GetKeyUp(KeyCode.UpArrow))
+			if (Input.GetKeyUp(KeyCode.Z))
 			{
-				_myNetworkView.RPC("PlayerWantToGoForward", RPCMode.Server, Network.player, false);
+				_myNetworkView.RPC("RPC_PlayerWantToGoForward", RPCMode.Server, Network.player, false);
 			}
 			
 			//go backward
-			if (Input.GetKeyDown(KeyCode.DownArrow))
+			if (Input.GetKeyDown(KeyCode.S))
 			{
-				_myNetworkView.RPC("PlayerWantToGoBackward", RPCMode.Server, Network.player, true);
+				_myNetworkView.RPC("RPC_PlayerWantToGoBackward", RPCMode.Server, Network.player, true);
 			}
-			if (Input.GetKeyUp(KeyCode.DownArrow))
+			if (Input.GetKeyUp(KeyCode.S))
 			{
-				_myNetworkView.RPC("PlayerWantToGoBackward", RPCMode.Server, Network.player, false);
+				_myNetworkView.RPC("RPC_PlayerWantToGoBackward", RPCMode.Server, Network.player, false);
 			}
 			
 			//go left
-			if (Input.GetKeyDown(KeyCode.LeftArrow))
+			if (Input.GetKeyDown(KeyCode.Q))
 			{
-				_myNetworkView.RPC("PlayerWantToGoLeft", RPCMode.Server, Network.player, true);
+				_myNetworkView.RPC("RPC_PlayerWantToGoLeft", RPCMode.Server, Network.player, true);
 			}
-			if (Input.GetKeyUp(KeyCode.LeftArrow))
+			if (Input.GetKeyUp(KeyCode.Q))
 			{
-				_myNetworkView.RPC("PlayerWantToGoLeft", RPCMode.Server, Network.player, false);
+				_myNetworkView.RPC("RPC_PlayerWantToGoLeft", RPCMode.Server, Network.player, false);
 			}
 			
 			//go right
-			if (Input.GetKeyDown(KeyCode.RightArrow))
+			if (Input.GetKeyDown(KeyCode.D ))
 			{
-				_myNetworkView.RPC("PlayerWantToGoRight", RPCMode.Server, Network.player, true);
+				_myNetworkView.RPC("RPC_PlayerWantToGoRight", RPCMode.Server, Network.player, true);
 			}
-			if (Input.GetKeyUp(KeyCode.RightArrow))
+			if (Input.GetKeyUp(KeyCode.D ))
 			{
-				_myNetworkView.RPC("PlayerWantToGoRight", RPCMode.Server, Network.player, false);
+				_myNetworkView.RPC("RPC_PlayerWantToGoRight", RPCMode.Server, Network.player, false);
 			}
 
 			//put attractive bomb
 			if (Input.GetKeyDown(KeyCode.L))
 			{
-				_myNetworkView.RPC("PlayerWantToPutAttractiveBomb", RPCMode.Server, Network.player, true);
+				_myNetworkView.RPC("RPC_PlayerWantToPutAttractiveBomb", RPCMode.Server, Network.player, true);
 			}
 			if (Input.GetKeyUp(KeyCode.L))
 			{
-				_myNetworkView.RPC("PlayerWantToPutAttractiveBomb", RPCMode.Server, Network.player, false);
+				_myNetworkView.RPC("RPC_PlayerWantToPutAttractiveBomb", RPCMode.Server, Network.player, false);
 			}
 			
 			//put repulsive bomb
 			if (Input.GetKeyDown(KeyCode.M))
 			{
-				_myNetworkView.RPC("PlayerWantToPutRepulsiveBomb", RPCMode.Server, Network.player, true);
+				_myNetworkView.RPC("RPC_PlayerWantToPutRepulsiveBomb", RPCMode.Server, Network.player, true);
 			}
 			if (Input.GetKeyUp(KeyCode.M))
 			{
-				_myNetworkView.RPC("PlayerWantToPutRepulsiveBomb", RPCMode.Server, Network.player, false);
+				_myNetworkView.RPC("RPC_PlayerWantToPutRepulsiveBomb", RPCMode.Server, Network.player, false);
 			}
 		}
 	}
@@ -195,14 +222,13 @@ public class BomberBotInputManagerScript : MonoBehaviour {
 	void FixedUpdate()
 	{
 		
-		if(Network.isServer){
+		if(Network.isServer)
+		{
 			if(BomberBotsList.Count > 0)
 			{
 				foreach (var b in BomberBotsList)
 				{
-					if(b.Value.BomberbotAnimationScript != null)
-						b.Value.BomberbotAnimationScript.AnimationSpeed = _bomberbotSpeed * b.Value._speedBonus * 0.9f;
-					
+								
 					if(b.Value._wantToGoForward) // go forward
 					{
 						b.Value.BomberbotTransform.rotation = Quaternion.Euler(new Vector3(0,0,0));
@@ -240,10 +266,10 @@ public class BomberBotInputManagerScript : MonoBehaviour {
 					if(b.Value._wantToPutAttrictiveBomb || b.Value._wantToPutRepulsiveBomb) 
 					{
 						NetworkViewID _netViewBomb = Network.AllocateViewID();
-						_myNetworkView.RPC("InstantiateBomb",RPCMode.All,b.Key,b.Value.BomberbotTransform.position,_netViewBomb);
+						_myNetworkView.RPC("RPC_InstantiateBomb",RPCMode.All,b.Key,b.Value.BomberbotTransform.position,_netViewBomb);
 					}
 					
-					_myNetworkView.RPC("ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotTransform.rotation);
+					_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotTransform.rotation);
 				}
 				
 			}
@@ -252,27 +278,64 @@ public class BomberBotInputManagerScript : MonoBehaviour {
 	void OnConnectedToServer()
 	{
 		//request for the players list
-		
-		_myNetworkView.RPC("SendAllPlayers", RPCMode.Server);
+		if(Network.isClient)
+		{
+
+			_myNetworkView.RPC("RPC_SendPlayerConfToServer", RPCMode.Server,GameSettingSingleton.Instance.PlayerName,GameSettingSingleton.Instance.IndexTeamSelected);
+			_myNetworkView.RPC("RPC_SendAllPlayers", RPCMode.Server);
+
+		}
 	}
 	
-	void OnPlayerConnected(NetworkPlayer p)
+
+
+	[RPC]
+	void RPC_SendPlayerConfToServer(string playerName,int playerTeamIndex, NetworkMessageInfo info )
 	{
-		// TODO allow player to select his team
 		if(Network.isServer)
 		{
 			NetworkViewID newViewID = Network.AllocateViewID();
-			//Vector3 respawn = (Vector3)GameSettingSingleton.Instance.GreenHQRespawnPosition[Random.Range(0,GameSettingSingleton.Instance.GreenHQRespawnPosition.Count)]+new Vector3(0,2,0);
-			Vector3 respawn = Vector3.up*2;
-			
-			_myNetworkView.RPC("AddPlayerConnected", RPCMode.All, p, respawn, Quaternion.identity, newViewID);
-			Debug.Log("Player " + newViewID.ToString() + " connected from " + p.ipAddress + ":" + p.port);
+			Vector3 respawn = new Vector3(0,2,0);
+			int len;
+			//Vector3 respawn = Vector3.up*2;
+			 switch (GameSettingSingleton.Instance.Team[playerTeamIndex])
+			{
+			case "green":
+				len = GameSettingSingleton.Instance.GreenHQRespawnPosition.Count;
+				respawn += (Vector3)GameSettingSingleton.Instance.GreenHQRespawnPosition[Random.Range(0,len)] ;
+
+				break;
+
+			case "red":
+				len = GameSettingSingleton.Instance.RedHQRespawnPosition.Count;
+				respawn += (Vector3)GameSettingSingleton.Instance.RedHQRespawnPosition[Random.Range(0,len)];
+				
+				break;
+
+			case "yellow":
+				len = GameSettingSingleton.Instance.YellowHQRespawnPosition.Count;
+				respawn += (Vector3)GameSettingSingleton.Instance.YellowHQRespawnPosition[Random.Range(0,len)];
+				
+				break;
+
+			case "blue":
+				len = GameSettingSingleton.Instance.BlueHQRespawnPosition.Count;
+				respawn += (Vector3)GameSettingSingleton.Instance.BlueHQRespawnPosition[Random.Range(0,len)];
+				
+				break;
+
+			}
+
+
+			_myNetworkView.RPC("RPC_AddPlayerConnected", RPCMode.All, info.sender, respawn, Quaternion.identity, newViewID, playerName, playerTeamIndex);
+
+			Debug.Log("Player " + newViewID.ToString() + " connected from " + info.sender.ipAddress + ":" + info.sender.port);
 			Debug.Log("There are now " + Network.connections.Length + " players.");
-		}       
+		}    
 	}
-	
+
 	[RPC]
-	void SendAllPlayers(NetworkMessageInfo info)
+	void RPC_SendAllPlayers(NetworkMessageInfo info)
 	{
 		// Send all players already connected to the new connected player
 		if(Network.isServer)
@@ -284,7 +347,14 @@ public class BomberBotInputManagerScript : MonoBehaviour {
 				
 				if(netPlayer.ToString() != info.sender.ToString())
 				{
-					_myNetworkView.RPC("AddPlayerConnected", info.sender, b.Value.BomberbotNetPlayer, b.Value.BomberbotTransform.position,b.Value.BomberbotTransform.rotation, playerNetworkView.viewID);
+					_myNetworkView.RPC("RPC_AddPlayerConnected",
+					                   info.sender,
+					                   b.Value.BomberbotNetPlayer,
+					                   b.Value.BomberbotTransform.position,
+					                   b.Value.BomberbotTransform.rotation,
+					                   playerNetworkView.viewID,
+					                   b.Value.PlayerName,
+					                   b.Value.PlayerTeamIndex);
 				}
 				
 			}
@@ -292,7 +362,7 @@ public class BomberBotInputManagerScript : MonoBehaviour {
 	}
 	
 	[RPC]
-	void AddPlayerConnected(NetworkPlayer p,Vector3 playerPosition, Quaternion playerRotation, NetworkViewID newPlayerView)
+	void RPC_AddPlayerConnected(NetworkPlayer p,Vector3 playerPosition, Quaternion playerRotation, NetworkViewID newPlayerView,string name,int team)
 	{
 		if(!BomberBotsList.ContainsKey(p))
 		{
@@ -303,10 +373,19 @@ public class BomberBotInputManagerScript : MonoBehaviour {
 			GameObject go_bb = (GameObject)Instantiate(_BomberbotPrefab, playerPosition, playerRotation);
 			go_bb.GetComponent<NetworkView>().viewID = newPlayerView;
 			BomberBotsList[p].BomberbotTransform = go_bb.GetComponent<Transform>();
-			go_bb.GetComponentInChildren<TextMesh>().text = newPlayerView.ToString().Remove(0,13)+"P";
-			
-			if(go_bb.GetComponent<BomberBotAnimationScript>())
-				BomberBotsList[p].BomberbotAnimationScript =  go_bb.GetComponent<BomberBotAnimationScript>();
+			//go_bb.GetComponentInChildren<TextMesh>().text = newPlayerView.ToString().Remove(0,13)+"P";
+
+			BomberBotsList[p].PlayerName = name;
+			BomberBotsList[p].PlayerTeamIndex = team;
+
+			BomberBotsList[p].BomberbotAnimationScript =  go_bb.GetComponent<BomberBotAnimationScript>();
+			if(BomberBotsList[p].BomberbotAnimationScript != null)
+			{
+				BomberBotsList[p].BomberbotAnimationScript.SetPlayerName(name);
+				BomberBotsList[p].BomberbotAnimationScript.SetPlayerNameColor(team);
+
+
+			}
 			
 			
 		}else{
@@ -318,12 +397,12 @@ public class BomberBotInputManagerScript : MonoBehaviour {
 	{
 		Destroy(BomberBotsList[p].BomberbotTransform.gameObject);
 		BomberBotsList.Remove(p);
-		_myNetworkView.RPC("PlayerDisconnected", RPCMode.Others, p);
+		_myNetworkView.RPC("RPC_PlayerDisconnected", RPCMode.Others, p);
 		
 	}
 	
 	[RPC]
-	void PlayerDisconnected(NetworkPlayer p)
+	void RPC_PlayerDisconnected(NetworkPlayer p)
 	{
 		Destroy(BomberBotsList[p].BomberbotTransform.gameObject);
 		BomberBotsList.Remove(p);
@@ -334,7 +413,7 @@ public class BomberBotInputManagerScript : MonoBehaviour {
 	
 	//send the new player position/rotation to the client
 	[RPC]
-	void ClientPlayerUpdate(NetworkPlayer p,Vector3 playerPosition, Quaternion playerRotation)
+	void RPC_ClientPlayerUpdate(NetworkPlayer p,Vector3 playerPosition, Quaternion playerRotation)
 	{
 		if(BomberBotsList.ContainsKey(p))
 		{
@@ -345,47 +424,47 @@ public class BomberBotInputManagerScript : MonoBehaviour {
 	
 	// go forward
 	[RPC]
-	void PlayerWantToGoForward(NetworkPlayer p, bool b)
+	void RPC_PlayerWantToGoForward(NetworkPlayer p, bool b)
 	{
 		
 		BomberBotsList[p]._wantToGoForward = b;
 		if (Network.isServer)
 		{
 			
-			_myNetworkView.RPC("PlayerWantToGoForward", RPCMode.Others, p, b);
+			_myNetworkView.RPC("RPC_PlayerWantToGoForward", RPCMode.Others, p, b);
 		}
 	}
 	
 	//go backward
 	[RPC]
-	void PlayerWantToGoBackward(NetworkPlayer p, bool b)
+	void RPC_PlayerWantToGoBackward(NetworkPlayer p, bool b)
 	{
 		BomberBotsList[p]._wantToGoBackward = b;
 		if (Network.isServer)
 		{
-			_myNetworkView.RPC("PlayerWantToGoBackward", RPCMode.Others, p, b);
+			_myNetworkView.RPC("RPC_PlayerWantToGoBackward", RPCMode.Others, p, b);
 		}
 	}
 	
 	//go right
 	[RPC]
-	void PlayerWantToGoRight(NetworkPlayer p, bool b)
+	void RPC_PlayerWantToGoRight(NetworkPlayer p, bool b)
 	{
 		BomberBotsList[p]._wantToGoRight = b;
 		if (Network.isServer)
 		{
-			_myNetworkView.RPC("PlayerWantToGoRight", RPCMode.Others, p, b);
+			_myNetworkView.RPC("RPC_PlayerWantToGoRight", RPCMode.Others, p, b);
 		}
 	}
 	
 	//go left
 	[RPC]
-	void PlayerWantToGoLeft(NetworkPlayer p, bool b)
+	void RPC_PlayerWantToGoLeft(NetworkPlayer p, bool b)
 	{
 		BomberBotsList[p]._wantToGoLeft = b;
 		if (Network.isServer)
 		{
-			_myNetworkView.RPC("PlayerWantToGoLeft", RPCMode.Others, p, b);
+			_myNetworkView.RPC("RPC_PlayerWantToGoLeft", RPCMode.Others, p, b);
 		}
 	}
 	
@@ -394,29 +473,29 @@ public class BomberBotInputManagerScript : MonoBehaviour {
 	#region RPC_BOMB
 	//put an attractive bomb
 	[RPC]
-	void PlayerWantToPutAttractiveBomb(NetworkPlayer p, bool b)
+	void RPC_PlayerWantToPutAttractiveBomb(NetworkPlayer p, bool b)
 	{
 		BomberBotsList[p]._wantToPutAttrictiveBomb = b;
 		if (Network.isServer)
 		{
-			_myNetworkView.RPC("PlayerWantToPutAttractiveBomb", RPCMode.Others, p, b);
+			_myNetworkView.RPC("RPC_PlayerWantToPutAttractiveBomb", RPCMode.Others, p, b);
 		}
 	}
 	
 	//put a repulsive bomb
 	[RPC]
-	void PlayerWantToPutRepulsiveBomb(NetworkPlayer p, bool b)
+	void RPC_PlayerWantToPutRepulsiveBomb(NetworkPlayer p, bool b)
 	{
 		BomberBotsList[p]._wantToPutRepulsiveBomb = b;
 		if (Network.isServer)
 		{
 
-			_myNetworkView.RPC("PlayerWantToPutRepulsiveBomb", RPCMode.Others, p, b);
+			_myNetworkView.RPC("RPC_PlayerWantToPutRepulsiveBomb", RPCMode.Others, p, b);
 		}
 	}
 
 	[RPC]
-	void InstantiateBomb(NetworkPlayer p, Vector3 bombPos, NetworkViewID bombViewID)
+	void RPC_InstantiateBomb(NetworkPlayer p, Vector3 bombPos, NetworkViewID bombViewID)
 	{
 		if(BomberBotsList[p]._wantToPutRepulsiveBomb)
 		{

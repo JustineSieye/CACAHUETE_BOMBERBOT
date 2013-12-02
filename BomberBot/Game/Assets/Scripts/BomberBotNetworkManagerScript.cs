@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class BomberBotNetworkManagerScript : MonoBehaviour {
+public class BomberBotNetworkManagerScript : MonoBehaviour
+{
 	
 	public string ip = "127.0.0.1";
 	public int port = 25001;
@@ -17,15 +18,22 @@ public class BomberBotNetworkManagerScript : MonoBehaviour {
 
 	void Start()
 	{
-		if(GameSettingSingleton.Instance.CurrentMenuState == GameSettingSingleton.MenuState.joinServer)
+		if(GameSettingSingleton.Instance.CurrentMenuState == GameSettingSingleton.MenuState.startServer)
 		{
 			StartServer();
 		}
 		else
 		{
-			if(GameSettingSingleton.Instance.CurrentMenuState == GameSettingSingleton.MenuState.startServer)
+			if(GameSettingSingleton.Instance.CurrentMenuState == GameSettingSingleton.MenuState.joinServer)
 			{
 				JoinServer();
+			}
+			else
+			{
+				if(GameSettingSingleton.Instance.CurrentMenuState == GameSettingSingleton.MenuState.logout)
+				{
+					Logout();
+				}
 			}
 		}
 
@@ -101,18 +109,20 @@ public class BomberBotNetworkManagerScript : MonoBehaviour {
 
 	void JoinServer()
 	{
-		var useNat = !Network.HavePublicAddress();
 		var port = GameSettingSingleton.Instance.PortToUse;
-		Network.InitializeSecurity();
-		Network.InitializeServer(10,port,useNat);
+		var ip = GameSettingSingleton.Instance.IpToConnect;
+		Network.Connect(ip,port);
 
 	}
 
 	void StartServer()
 	{
+
+		var useNat = !Network.HavePublicAddress();
 		var port = GameSettingSingleton.Instance.PortToUse;
-		var ip = GameSettingSingleton.Instance.IpToConnect;
-		Network.Connect(ip,port);
+		var maxPlayer = GameSettingSingleton.Instance.MaxPlayerNumber;
+		Network.InitializeSecurity();
+		Network.InitializeServer(maxPlayer,port,useNat);
 
 	}
 

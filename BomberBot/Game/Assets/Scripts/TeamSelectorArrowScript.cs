@@ -2,7 +2,8 @@
 using System.Collections;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class TeamSelectorArrowScript : MonoBehaviour {
+public class TeamSelectorArrowScript : MonoBehaviour 
+{
 
 	public enum Arrows {left=1,right=2};
 	public GameObject _teamSelector;
@@ -24,7 +25,6 @@ public class TeamSelectorArrowScript : MonoBehaviour {
 			_teamSelector.transform.Rotate(new Vector3(0,-90,0));
 			GameSettingSingleton.Instance.IndexTeamSelected--;
 			GameSettingSingleton.Instance.IndexTeamSelected = (GameSettingSingleton.Instance.IndexTeamSelected<0)?3:GameSettingSingleton.Instance.IndexTeamSelected;
-			Debug.Log(GameSettingSingleton.Instance.Team[GameSettingSingleton.Instance.IndexTeamSelected]);
 
 		}
 		else
@@ -34,7 +34,6 @@ public class TeamSelectorArrowScript : MonoBehaviour {
 				_teamSelector.transform.Rotate(new Vector3(0,90,0));
 				GameSettingSingleton.Instance.IndexTeamSelected++;
 				GameSettingSingleton.Instance.IndexTeamSelected = (GameSettingSingleton.Instance.IndexTeamSelected>3)?0:GameSettingSingleton.Instance.IndexTeamSelected;
-				Debug.Log(GameSettingSingleton.Instance.Team[GameSettingSingleton.Instance.IndexTeamSelected]);
 			}
 		}
 

@@ -14,7 +14,11 @@ public class PlayerNumberIteratorScript : MonoBehaviour {
 	void Start()
 	{
 		_textMesh = this.GetComponent<TextMesh>();
-		
+
+		if(_action == Action.decrease)
+		{
+			_intField.text = GameSettingSingleton.Instance.MaxPlayerNumber+" Players";
+		}
 	}
 	
 	void OnMouseUp()

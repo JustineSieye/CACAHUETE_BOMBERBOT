@@ -34,7 +34,6 @@ public class ArenaViewerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-
 		GameSettingSingleton.Instance.CurrentLoadedArena = GameSettingSingleton.Instance.ArenaFileList[GameSettingSingleton.Instance.IndexArenaSelected].bytes;
 
 		//arena settings
@@ -60,9 +59,7 @@ public class ArenaViewerScript : MonoBehaviour {
 
 		GenerateArenaViewer();
 
-
-		//GeneratePlaneMeshViewer();
-
+		this.transform.localPosition = new Vector3(0f,-_arenaViewerHeight-1f ,0f);
 
 	}
 	
@@ -82,7 +79,7 @@ public class ArenaViewerScript : MonoBehaviour {
 			_elementSize = _arenaViewerWidth / (_arenaWidth);
 			_arenaViewerHeight = _elementSize * (_arenaHeight);
 			_arenaIndex = GameSettingSingleton.Instance.IndexArenaSelected;
-
+			this.transform.localPosition = new Vector3(0f,-_arenaViewerHeight-1f,0f);
 			GenerateArenaViewer();
 
 
@@ -299,12 +296,13 @@ public class ArenaViewerScript : MonoBehaviour {
 			
 				}
 
-				GameObject quadInstance = (GameObject)Instantiate(_quadPrefab,new Vector3(j*_elementSize-_arenaViewerWidth/2f,_arenaViewerHeight/2f-i*_elementSize,0f),Quaternion.identity);
+				GameObject quadInstance = (GameObject)Instantiate(_quadPrefab);
 
 				//update quad uv
 				quadInstance.transform.localScale = new Vector3(_elementSize,_elementSize,_elementSize);
 				quadInstance.transform.parent = this.transform;
-
+				quadInstance.transform.localPosition = new Vector3(j*_elementSize-_arenaViewerWidth/2f,_arenaViewerHeight/2f-i*_elementSize,0f);
+				quadInstance.transform.localRotation = Quaternion.identity;
 				quadInstance.GetComponent<MeshFilter>().mesh.uv = _uvs;
 
 				EditArenaElementScript quadScript = quadInstance.GetComponent<EditArenaElementScript>() ;

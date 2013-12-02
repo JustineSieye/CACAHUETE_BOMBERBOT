@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class FlagMovementScript : MonoBehaviour {
+public class FlagMovementScript : MonoBehaviour
+{
 
 	private GameObject _flag;
 	private string _colliderTag;
@@ -89,7 +90,6 @@ public class FlagMovementScript : MonoBehaviour {
 			Debug.Log("onCollisionEnter Flag");
 			if(col.gameObject.tag.Contains("Blast"))
 			{
-				Debug.Log("blast touch flag");
 				_colliderTag = col.gameObject.tag;
 				_myNetView.RPC ("MoveFlag", RPCMode.All,_colliderTag);
 			}
@@ -115,33 +115,28 @@ public class FlagMovementScript : MonoBehaviour {
 	void MoveFlag(string colTag)
 	{
 
-		//Debug.Log (coll.gameObject.name);
 
 		if(colTag == "RightRepulsiveBlast" || colTag == "LeftAttractiveBlast")
 		{
 			_moveRight = true;
-			Debug.Log("right move flag");
 		}
 		else
 		{
 			if(colTag == "LeftRepulsiveBlast" || colTag == "RightAttractiveBlast")
 			{
 				_moveLeft = true;
-				Debug.Log("left move flag");
 			}
 			else
 			{
 				if(colTag == "TopRepulsiveBlast" || colTag == "BottomAttractiveBlast")
 				{
 					_moveTop = true;
-					Debug.Log("top move flag");
 				}
 				else
 				{
 					if(colTag == "BottomRepulsiveBlast" || colTag == "TopAttractiveBlast")
 					{
 						_moveBottom = true;
-						Debug.Log("bottom move flag");
 					}
 				}
 			}
@@ -164,14 +159,14 @@ public class FlagMovementScript : MonoBehaviour {
 			int prevIndex = arenaWidth*(arenaHeight-(int)prevPos.z+1)+(int)prevPos.x;
 			int currentIndex = arenaWidth*(arenaHeight-(int)newPos.z+1)+(int)newPos.x;
 
-			Debug.Log ("[OLD] Flag move from ("+prevPos.x +","+prevPos.z +") --- bytes["+prevIndex+"] = "+GameSettingSingleton.Instance.CurrentLoadedArena[prevIndex]+" ");
-			Debug.Log ("[OLD] To ("+newPos.x +","+newPos.z +") --- bytes["+currentIndex+"] = "+GameSettingSingleton.Instance.CurrentLoadedArena[currentIndex]+" "); 
+			//Debug.Log ("[OLD] Flag move from ("+prevPos.x +","+prevPos.z +") --- bytes["+prevIndex+"] = "+GameSettingSingleton.Instance.CurrentLoadedArena[prevIndex]+" ");
+			//Debug.Log ("[OLD] To ("+newPos.x +","+newPos.z +") --- bytes["+currentIndex+"] = "+GameSettingSingleton.Instance.CurrentLoadedArena[currentIndex]+" "); 
 
 			GameSettingSingleton.Instance.CurrentLoadedArena[prevIndex]= byte.Parse("0");
 			GameSettingSingleton.Instance.CurrentLoadedArena[currentIndex] = byte.Parse("3");
 
-			Debug.Log ("[NEW] Flag move from ("+prevPos.x +","+prevPos.z +") --- bytes["+prevIndex+"] = "+GameSettingSingleton.Instance.CurrentLoadedArena[prevIndex]+" ");
-			Debug.Log ("[NEW] ("+newPos.x +","+newPos.z +") --- bytes["+currentIndex+"] = "+GameSettingSingleton.Instance.CurrentLoadedArena[currentIndex]+" "); 
+			//Debug.Log ("[NEW] Flag move from ("+prevPos.x +","+prevPos.z +") --- bytes["+prevIndex+"] = "+GameSettingSingleton.Instance.CurrentLoadedArena[prevIndex]+" ");
+			//Debug.Log ("[NEW] ("+newPos.x +","+newPos.z +") --- bytes["+currentIndex+"] = "+GameSettingSingleton.Instance.CurrentLoadedArena[currentIndex]+" "); 
 		}
 	}
 	

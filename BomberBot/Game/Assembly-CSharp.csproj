@@ -64,7 +64,6 @@
      <Compile Include="Assets\Scripts\FlagMovementScript.cs" />
      <Compile Include="Assets\Scripts\GameSettingSingleton.cs" />
      <Compile Include="Assets\Scripts\GraphicsSettingMenuScript.cs" />
-     <Compile Include="Assets\Scripts\InputSettingMenuScript.cs" />
      <Compile Include="Assets\Scripts\MoveScript.cs" />
      <Compile Include="Assets\Scripts\PlayerNumberIteratorScript.cs" />
      <Compile Include="Assets\Scripts\ServerSideMenuScript.cs" />
@@ -72,6 +71,8 @@
      <Compile Include="Assets\Scripts\TeamSelectorArrowScript.cs" />
      <Compile Include="Assets\Scripts\TeamTextureUVMapScript.cs" />
      <Compile Include="Assets\Scripts\TextButtonScript.cs" />
+     <Compile Include="Assets\Scripts\WhoIsTheWinnerScript.cs" />
+     <Compile Include="Assets\Scripts\WinnerTeamDisplayScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

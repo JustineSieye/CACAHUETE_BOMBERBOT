@@ -65,8 +65,8 @@ public class ArenaLoaderScript : MonoBehaviour {
 		 
 		int arenaWidth = arenaFile[0];
 		int arenaHeight = arenaFile[1];
-		Debug.Log ("width"+arenaWidth);
-		Debug.Log ("height"+arenaHeight);
+		//Debug.Log ("width"+arenaWidth);
+		//Debug.Log ("height"+arenaHeight);
 		
 		
 		for(int i = -1;i<=arenaHeight;i++)

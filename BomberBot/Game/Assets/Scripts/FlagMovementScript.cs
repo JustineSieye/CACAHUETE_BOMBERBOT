@@ -97,6 +97,9 @@ public class FlagMovementScript : MonoBehaviour
 
 	void OnCollisionEnter (Collision col)
 	{
+//		if(this.rigidbody.constraints != RigidbodyConstraints.FreezeAll)
+//			this.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+
 		if(Network.isServer)
 		{
 			_colliderTag = col.gameObject.tag;

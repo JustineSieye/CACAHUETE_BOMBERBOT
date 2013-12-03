@@ -11,7 +11,9 @@ public class BomberBotAnimationScript : MonoBehaviour
 	private Vector3 _tmpPosition;
 	private Transform _transform;
 	private Animation _animation;
-	 
+
+	public bool _shouldBeDead = false;
+
 	public void SetPlayerName(string name)
 	{
 		_playerNameTextMesh.text = name;
@@ -66,6 +68,31 @@ public class BomberBotAnimationScript : MonoBehaviour
 			_animation["Walk"].speed = 0f;
 		}
 		
-		
 	}
+
+	void OnCollisionEnter(Collision col)
+	{
+		if(Network.isServer)
+		{
+			if(col.transform.tag.Contains("Blast"))
+			{
+				Debug.Log("Should rest in peace");
+				_shouldBeDead = true;
+			}
+		}
+	}
+
+	void OnTriggerEnter(Collider col)
+	{
+		if(Network.isServer)
+		{
+			if(col.transform.tag.Contains("Blast"))
+			{
+				Debug.Log("Should rest in peace");
+				_shouldBeDead = true;
+			}
+		}
+	}
+
+
 }

@@ -22,6 +22,7 @@ public class BomberBotInputManagerScript : MonoBehaviour
  	public GameObject _repulsiveBombPrefab;
 	public GameObject _attractiveBombPrefab;
 
+
 	
 	//player move speed
 	[SerializeField]
@@ -121,15 +122,13 @@ public class BomberBotInputManagerScript : MonoBehaviour
 		//*************************************//
 		
 		//**********Player stats**************//
-		
+
 		public int _maxAvailableBomb = 2;
 		public int _speedBonus = 1;
-		
+		public float _timeBeforeMoving = 2f;
 		//*************************************//
 		
-		//public NetworkView _arenaNetworkView;
-		//public NetworkView _menuNetworkView;
-		
+
 	}
 	
 	
@@ -228,48 +227,81 @@ public class BomberBotInputManagerScript : MonoBehaviour
 			{
 				foreach (var b in BomberBotsList)
 				{
-								
-					if(b.Value._wantToGoForward) // go forward
-					{
-						b.Value.BomberbotTransform.rotation = Quaternion.Euler(new Vector3(0,0,0));
-						b.Value.BomberbotTransform.position += b.Value.BomberbotTransform.forward * _bomberbotSpeed * b.Value._speedBonus * Time.deltaTime;
-						
-					}
-					else
-					{
-						
-						if(b.Value._wantToGoBackward) // go forward
+					if(!b.Value.BomberbotAnimationScript._shouldBeDead)
+					{			
+						if(b.Value._wantToGoForward) // go forward
 						{
-							b.Value.BomberbotTransform.rotation = Quaternion.Euler(new Vector3(0,180,0));
+							b.Value.BomberbotTransform.rotation = Quaternion.Euler(new Vector3(0,0,0));
 							b.Value.BomberbotTransform.position += b.Value.BomberbotTransform.forward * _bomberbotSpeed * b.Value._speedBonus * Time.deltaTime;
+							_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotTransform.rotation);
+
 							
 						}
 						else
 						{
-							if(b.Value._wantToGoRight) //go right
+							
+							if(b.Value._wantToGoBackward) // go forward
 							{
-								b.Value.BomberbotTransform.rotation = Quaternion.Euler(new Vector3(0,90,0));
+								b.Value.BomberbotTransform.rotation = Quaternion.Euler(new Vector3(0,180,0));
 								b.Value.BomberbotTransform.position += b.Value.BomberbotTransform.forward * _bomberbotSpeed * b.Value._speedBonus * Time.deltaTime;
+								_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotTransform.rotation);
+
+								
 							}
 							else
 							{
-								
-								if(b.Value._wantToGoLeft) //go right
+								if(b.Value._wantToGoRight) //go right
 								{
-									b.Value.BomberbotTransform.rotation = Quaternion.Euler(new Vector3(0,270,0));
+									b.Value.BomberbotTransform.rotation = Quaternion.Euler(new Vector3(0,90,0));
 									b.Value.BomberbotTransform.position += b.Value.BomberbotTransform.forward * _bomberbotSpeed * b.Value._speedBonus * Time.deltaTime;
+									_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotTransform.rotation);
+
+								}
+								else
+								{
+									
+									if(b.Value._wantToGoLeft) //go right
+									{
+										b.Value.BomberbotTransform.rotation = Quaternion.Euler(new Vector3(0,270,0));
+										b.Value.BomberbotTransform.position += b.Value.BomberbotTransform.forward * _bomberbotSpeed * b.Value._speedBonus * Time.deltaTime;
+										_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotTransform.rotation);
+
+									}
 								}
 							}
 						}
-					}
 
-					if(b.Value._wantToPutAttrictiveBomb || b.Value._wantToPutRepulsiveBomb) 
-					{
-						NetworkViewID _netViewBomb = Network.AllocateViewID();
-						_myNetworkView.RPC("RPC_InstantiateBomb",RPCMode.All,b.Key,b.Value.BomberbotTransform.position,_netViewBomb);
+						if(b.Value._wantToPutAttrictiveBomb || b.Value._wantToPutRepulsiveBomb) 
+						{
+							NetworkViewID _netViewBomb = Network.AllocateViewID();
+							_myNetworkView.RPC("RPC_InstantiateBomb",RPCMode.All,b.Key,b.Value.BomberbotTransform.position,_netViewBomb);
+						}
+						
 					}
-					
-					_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotTransform.rotation);
+					else
+					{
+
+						Debug.Log("DEAD");
+						if(b.Value._timeBeforeMoving<=0f)
+						{
+							b.Value.BomberbotAnimationScript._shouldBeDead = false;
+							b.Value._timeBeforeMoving = 2f;
+						}
+						else
+						{
+							if(b.Value._timeBeforeMoving == 2f)
+							{
+								b.Value.BomberbotTransform.rotation = Quaternion.Euler(new Vector3(0,0,0));
+								b.Value.BomberbotTransform.position = GetRespawPosition(b.Value.PlayerTeamIndex);
+								_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotTransform.rotation);
+								b.Value._timeBeforeMoving -= Time.deltaTime;
+							}
+							else
+							{
+								b.Value._timeBeforeMoving -= Time.deltaTime;
+							}
+						}
+					}
 				}
 				
 			}
@@ -334,6 +366,42 @@ public class BomberBotInputManagerScript : MonoBehaviour
 		}    
 	}
 
+	Vector3 GetRespawPosition(int playerTeamIndex)
+	{
+		Vector3 respawn = new Vector3(0,2,0);
+		int len;
+		//Vector3 respawn = Vector3.up*2;
+		switch (GameSettingSingleton.Instance.Team[playerTeamIndex])
+		{
+		case "green":
+			len = GameSettingSingleton.Instance.GreenHQRespawnPosition.Count;
+			respawn += (Vector3)GameSettingSingleton.Instance.GreenHQRespawnPosition[Random.Range(0,len)] ;
+			
+			break;
+			
+		case "red":
+			len = GameSettingSingleton.Instance.RedHQRespawnPosition.Count;
+			respawn += (Vector3)GameSettingSingleton.Instance.RedHQRespawnPosition[Random.Range(0,len)];
+			
+			break;
+			
+		case "yellow":
+			len = GameSettingSingleton.Instance.YellowHQRespawnPosition.Count;
+			respawn += (Vector3)GameSettingSingleton.Instance.YellowHQRespawnPosition[Random.Range(0,len)];
+			
+			break;
+			
+		case "blue":
+			len = GameSettingSingleton.Instance.BlueHQRespawnPosition.Count;
+			respawn += (Vector3)GameSettingSingleton.Instance.BlueHQRespawnPosition[Random.Range(0,len)];
+			
+			break;
+			
+		}
+
+		return respawn;
+	}
+
 	[RPC]
 	void RPC_SendAllPlayers(NetworkMessageInfo info)
 	{
@@ -373,6 +441,7 @@ public class BomberBotInputManagerScript : MonoBehaviour
 			GameObject go_bb = (GameObject)Instantiate(_BomberbotPrefab, playerPosition, playerRotation);
 			go_bb.GetComponent<NetworkView>().viewID = newPlayerView;
 			BomberBotsList[p].BomberbotTransform = go_bb.GetComponent<Transform>();
+
 			//go_bb.GetComponentInChildren<TextMesh>().text = newPlayerView.ToString().Remove(0,13)+"P";
 
 			BomberBotsList[p].PlayerName = name;
@@ -467,7 +536,11 @@ public class BomberBotInputManagerScript : MonoBehaviour
 			_myNetworkView.RPC("RPC_PlayerWantToGoLeft", RPCMode.Others, p, b);
 		}
 	}
-	
+
+	[RPC]
+	void RPC_RespawnDeadPlayer(NetworkPlayer p)
+	{
+	}
 	#endregion
 
 	#region RPC_BOMB

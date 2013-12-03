@@ -10,9 +10,8 @@ public class GraphicsSettingMenuScript : MonoBehaviour {
 		Resolution[] _resolutions = Screen.GetResolution;
 		
 
-		Screen.SetResolution(800,600,false);
-		Resolution defaultResolution = new Resolution();
-		Debug.Log(GameSettingSingleton.Instance.CurrentMenuState );
+		//Screen.SetResolution(800,600,false);
+		//Resolution defaultResolution = new Resolution();
 
 	}
 	

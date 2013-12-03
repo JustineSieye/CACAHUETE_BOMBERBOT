@@ -1,0 +1,190 @@
+Initialize engine version: 4.3.0f4 (e01000627d60)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [nvd3dum.dll 9.18.13.1144]
+    Renderer: NVIDIA GeForce GTX 660M  
+    Vendor:   NVIDIA
+    VRAM:     1994 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=0 INTZ=1 RAWZ=0 NULL=1 RESZ=0 SlowINTZ=0
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.059 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1920x1080 60Hz; virtual: 2944x1080 at 0,0
+UnloadTime: 0.411417 ms
+System memory in use before: 11.3 MB.
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+System memory in use after: 11.2 MB.
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 370.
+Total: 0.725111 ms (FindLiveObjects: 0.017848 ms CreateObjectMapping: 0.010709 ms MarkObjects: 0.087013 ms  DeleteObjects: 0.010709 ms)
+
+UnloadTime: 4.296229 ms
+System memory in use before: 12.2 MB.
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+System memory in use after: 11.3 MB.
+
+Unloading 367 unused Assets to reduce memory usage. Loaded Objects now: 512.
+Total: 1.557762 ms (FindLiveObjects: 0.031235 ms CreateObjectMapping: 0.070056 ms MarkObjects: 0.094599 ms  DeleteObjects: 0.818371 ms)
+
+Running as server. Player ID is 0.
+UnityEngine.Network:InitializeServer(Int32, Int32, Boolean)
+BomberBotNetworkManagerScript:StartServer() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\BomberBotNetworkManagerScript.cs:58)
+BomberBotNetworkManagerScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\BomberBotNetworkManagerScript.cs:24)
+
+[C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp line 2479] 
+(Filename: C Line: 0)
+
+Sent RPC call 'RPC_DestroyArena' to all connected clients
+
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+ArenaLoaderScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:36)
+
+[C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp line 2479] 
+(Filename: C Line: 0)
+
+Allocating view ID AllocatedID: 1.
+
+UnityEngine.Network:Internal_AllocateViewID(NetworkViewID&)
+UnityEngine.Network:AllocateViewID()
+ArenaLoaderScript:RPC_GenerateArena(Byte[]) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:99)
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+ArenaLoaderScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:37)
+
+[C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp line 2479] 
+(Filename: C Line: 0)
+
+Allocating view ID AllocatedID: 2.
+
+UnityEngine.Network:Internal_AllocateViewID(NetworkViewID&)
+UnityEngine.Network:AllocateViewID()
+ArenaLoaderScript:RPC_GenerateArena(Byte[]) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:99)
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+ArenaLoaderScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:37)
+
+[C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp line 2479] 
+(Filename: C Line: 0)
+
+Allocating view ID AllocatedID: 3.
+
+UnityEngine.Network:Internal_AllocateViewID(NetworkViewID&)
+UnityEngine.Network:AllocateViewID()
+ArenaLoaderScript:RPC_GenerateArena(Byte[]) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:99)
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+ArenaLoaderScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:37)
+
+[C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp line 2479] 
+(Filename: C Line: 0)
+
+Allocating view ID AllocatedID: 4.
+
+UnityEngine.Network:Internal_AllocateViewID(NetworkViewID&)
+UnityEngine.Network:AllocateViewID()
+ArenaLoaderScript:RPC_GenerateArena(Byte[]) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:99)
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+ArenaLoaderScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:37)
+
+[C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp line 2479] 
+(Filename: C Line: 0)
+
+Allocating view ID AllocatedID: 5.
+
+UnityEngine.Network:Internal_AllocateViewID(NetworkViewID&)
+UnityEngine.Network:AllocateViewID()
+ArenaLoaderScript:RPC_GenerateArena(Byte[]) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:99)
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+ArenaLoaderScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:37)
+
+[C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp line 2479] 
+(Filename: C Line: 0)
+
+Allocating view ID AllocatedID: 6.
+
+UnityEngine.Network:Internal_AllocateViewID(NetworkViewID&)
+UnityEngine.Network:AllocateViewID()
+ArenaLoaderScript:RPC_GenerateArena(Byte[]) (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:99)
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+ArenaLoaderScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:37)
+
+[C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp line 2479] 
+(Filename: C Line: 0)
+
+Sent RPC call 'RPC_GenerateArena' to all connected clients
+
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+ArenaLoaderScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:37)
+
+[C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp line 2479] 
+(Filename: C Line: 0)
+
+Sent RPC call 'GenerateBreakableBlock' to all connected clients
+
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+ArenaLoaderScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:41)
+
+[C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp line 2479] 
+(Filename: C Line: 0)
+
+Sent RPC call 'GenerateBreakableBlock' to all connected clients
+
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+ArenaLoaderScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:41)
+
+[C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp line 2479] 
+(Filename: C Line: 0)
+
+Sent RPC call 'GenerateBreakableBlock' to all connected clients
+
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+ArenaLoaderScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:41)
+
+[C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp line 2479] 
+(Filename: C Line: 0)
+
+Sent RPC call 'GenerateBreakableBlock' to all connected clients
+
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+ArenaLoaderScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:41)
+
+[C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp line 2479] 
+(Filename: C Line: 0)
+
+Sent RPC call 'GenerateBreakableBlock' to all connected clients
+
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+ArenaLoaderScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:41)
+
+[C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp line 2479] 
+(Filename: C Line: 0)
+
+Sent RPC call 'GenerateBreakableBlock' to all connected clients
+
+UnityEngine.NetworkView:Internal_RPC(NetworkView, String, RPCMode, Object[])
+UnityEngine.NetworkView:RPC(String, RPCMode, Object[])
+ArenaLoaderScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\ArenaLoaderScript.cs:41)
+
+[C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp line 2479] 
+(Filename: C Line: 0)
+
+Connected to facilitator at 67.225.180.24:50005
+
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp Line: 2479)
+

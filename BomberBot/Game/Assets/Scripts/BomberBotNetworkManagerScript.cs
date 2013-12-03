@@ -55,7 +55,12 @@ public class BomberBotNetworkManagerScript : MonoBehaviour
 		var port = GameSettingSingleton.Instance.PortToUse;
 		var maxPlayer = GameSettingSingleton.Instance.MaxPlayerNumber;
 		Network.InitializeSecurity();
-		Network.InitializeServer(maxPlayer,port,useNat);
+		NetworkConnectionError error = Network.InitializeServer(maxPlayer,port,useNat);
+
+		if(NetworkConnectionError.NoError != error){
+			GameSettingSingleton.Instance.CurrentMenuState = GameSettingSingleton.MenuState.serverMenu;
+			Application.LoadLevel("ServerMenu");
+		}
 
 	}
 
@@ -80,6 +85,17 @@ public class BomberBotNetworkManagerScript : MonoBehaviour
 
 			}
 		}
+	}
+
+	void OnFailedToConnect(NetworkConnectionError error)
+	{
+	
+			GameSettingSingleton.Instance.CurrentMenuState = GameSettingSingleton.MenuState.clientMenu;
+			Application.LoadLevel("ClientMenu");
+	
+				
+				
+	
 	}
 	
 }

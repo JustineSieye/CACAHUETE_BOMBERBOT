@@ -4,13 +4,17 @@ using System.Collections;
 public class DestroyBombScript : MonoBehaviour {
 
 	public float _timeToLive = 2.5f;
+	private string _colliderTag;
+
 	public GameObject _explosionBlast;
 	public GameObject _implosionBlast;
 	private GameObject _bomb;
+
 	private bool _moveRight;
 	private bool _moveTop;
 	private bool _moveLeft;
 	private bool _moveBottom;
+
 	private NetworkView _myNetView;
 
 	// Use this for initialization
@@ -25,7 +29,7 @@ public class DestroyBombScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void FixedUpdate () 
 	{ 
 		if (Network.isServer) 
 		{
@@ -33,38 +37,46 @@ public class DestroyBombScript : MonoBehaviour {
 
 			if (_timeToLive <= 0.0f) 
 			{
-				_myNetView.RPC ("DestroyBomb", RPCMode.All);
-			}
-		}
-
-		//Move bomb if she collids with an implosion
-
-		if(_moveTop)
-		{
-			_bomb.transform.position = new Vector3 (_bomb.transform.position.x, _bomb.transform.position.y, _bomb.transform.position.z + 1);
-			_moveTop = false;
-			
-		}
-		else
-		{
-			if(_moveBottom)
-			{
-				_bomb.transform.position = new Vector3 (_bomb.transform.position.x, _bomb.transform.position.y, _bomb.transform.position.z - 1);
-				_moveBottom = false;
+				_myNetView.RPC ("RPC_DestroyBomb", RPCMode.All);
 			}
 			else
 			{
-				if(_moveLeft)
+		
+
+		//Move bomb if she collids with an implosion
+
+				if(_moveTop)
 				{
-					_bomb.transform.position = new Vector3 (_bomb.transform.position.x - 1, _bomb.transform.position.y, _bomb.transform.position.z);
-					_moveLeft = false;
+					_bomb.transform.position = new Vector3 (_bomb.transform.position.x, _bomb.transform.position.y, _bomb.transform.position.z + 1);
+					_myNetView.RPC("RPC_SendNewBombPositionToClient",RPCMode.Others,_bomb.transform.position);
+					_moveTop = false;
+					
 				}
 				else
 				{
-					if(_moveRight)
+					if(_moveBottom)
 					{
-						_bomb.transform.position = new Vector3 (_bomb.transform.position.x + 1, _bomb.transform.position.y, _bomb.transform.position.z);
-						_moveRight = false;
+						_bomb.transform.position = new Vector3 (_bomb.transform.position.x, _bomb.transform.position.y, _bomb.transform.position.z - 1);
+						_myNetView.RPC("RPC_SendNewBombPositionToClient",RPCMode.Others,_bomb.transform.position);
+						_moveBottom = false;
+					}
+					else
+					{
+						if(_moveLeft)
+						{
+							_bomb.transform.position = new Vector3 (_bomb.transform.position.x - 1, _bomb.transform.position.y, _bomb.transform.position.z);
+							_myNetView.RPC("RPC_SendNewBombPositionToClient",RPCMode.Others,_bomb.transform.position);
+							_moveLeft = false;
+						}
+						else
+						{
+							if(_moveRight)
+							{
+								_bomb.transform.position = new Vector3 (_bomb.transform.position.x + 1, _bomb.transform.position.y, _bomb.transform.position.z);
+								_myNetView.RPC("RPC_SendNewBombPositionToClient",RPCMode.Others,_bomb.transform.position);
+								_moveRight = false;
+							}
+						}
 					}
 				}
 			}
@@ -75,23 +87,60 @@ public class DestroyBombScript : MonoBehaviour {
 	{
 		if (Network.isServer) 
 		{
-			Debug.Log("something collids with this bomb");
-			if(col.gameObject.tag.Contains("RepulsiveBlast"))
+			_colliderTag = col.gameObject.tag;
+			
+			if(_colliderTag.Contains("RepulsiveBlast"))
 			{
 				_timeToLive = 0.0f;
 			}
 			else
 			{
-				if(col.gameObject.tag.Contains("AttractiveBlast"))
+				if(_colliderTag.Contains("AttractiveBlast"))
 				{
-					_myNetView.RPC ("MoveBomb", RPCMode.All,col.gameObject.tag);
+					
+					_moveRight = ( _colliderTag == "LeftAttractiveBlast");
+					
+					_moveLeft = (_colliderTag == "RightAttractiveBlast");
+					
+					_moveTop = (_colliderTag == "BottomAttractiveBlast");
+					
+					_moveBottom = (_colliderTag == "TopAttractiveBlast");
+					
+				}
+			}
+		}
+	}
+
+	void OnTriggerEnter(Collider col)
+	{
+		if (Network.isServer) 
+		{
+			_colliderTag = col.gameObject.tag;
+
+			if(_colliderTag.Contains("RepulsiveBlast"))
+			{
+				_timeToLive = 0.0f;
+			}
+			else
+			{
+				if(_colliderTag.Contains("AttractiveBlast"))
+				{
+
+					_moveRight = ( _colliderTag == "LeftAttractiveBlast");
+
+					_moveLeft = (_colliderTag == "RightAttractiveBlast");
+
+					_moveTop = (_colliderTag == "BottomAttractiveBlast");
+
+					_moveBottom = (_colliderTag == "TopAttractiveBlast");
+								
 				}
 			}
 		}
 	}
 
 	[RPC]
-	void DestroyBomb()
+	void RPC_DestroyBomb()
 	{
 		GameObject topBlast,bottomBlast,leftBlast,rightBlast;
 
@@ -133,44 +182,15 @@ public class DestroyBombScript : MonoBehaviour {
 			}
 		}
 
-		Destroy (_bomb);
+		Destroy(_bomb);
 
 	}
 
 	[RPC]
-	void MoveBomb(string colTag)
+	void RPC_SendNewBombPositionToClient(Vector3 newPos)
 	{
-		
+		this.transform.position = newPos;
 
-		if( colTag == "LeftAttractiveBlast")
-		{
-			_moveRight = true;
-			Debug.Log("right move bomb");
-		}
-		else
-		{
-			if(colTag == "RightAttractiveBlast")
-			{
-				_moveLeft = true;
-				Debug.Log("left move bomb");
-			}
-			else
-			{
-				if(colTag == "BottomAttractiveBlast")
-				{
-					_moveTop = true;
-					Debug.Log("top move bomb");
-				}
-				else
-				{
-					if(colTag == "TopAttractiveBlast")
-					{
-						_moveBottom = true;
-						Debug.Log("bottom move bomb");
-					}
-				}
-			}
-		}
 	}
 
 }

@@ -12,7 +12,9 @@ public class FlagMovementScript : MonoBehaviour
 	private bool _moveBottom;
 	private NetworkView _myNetView;
 	private Vector3 oldPos;
-	
+
+
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -27,72 +29,69 @@ public class FlagMovementScript : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void FixedUpdate () 
 	{ 
-		if(_moveTop)
+		if(Network.isServer)
 		{
-			_flag.transform.position = new Vector3 (_flag.transform.position.x, _flag.transform.position.y, _flag.transform.position.z + 1);
-			_moveTop = false;
-			if(Network.isServer)
+			if(_moveTop)
 			{
+				_flag.transform.position = new Vector3 (_flag.transform.position.x, _flag.transform.position.y, _flag.transform.position.z + 1);
 				UpdateFlagPositionInLoadedArenaTab(oldPos,this.transform.position);
 				oldPos = this.transform.position;
-			}
-
-		}
-		else
-		{
-			if(_moveBottom)
-			{
-				_flag.transform.position = new Vector3 (_flag.transform.position.x, _flag.transform.position.y, _flag.transform.position.z - 1);
-				_moveBottom = false;
-				if(Network.isServer)
-				{
-					UpdateFlagPositionInLoadedArenaTab(oldPos,this.transform.position);
-					oldPos = this.transform.position;
-				}
+				_myNetView.RPC("RPC_SendNewFlagPositionToClient",RPCMode.Others,_flag.transform.position);
+				_moveTop = false;
 			}
 			else
 			{
-				if(_moveLeft)
+				if(_moveBottom)
 				{
-					_flag.transform.position = new Vector3 (_flag.transform.position.x - 1, _flag.transform.position.y, _flag.transform.position.z);
-					_moveLeft = false;
-					if(Network.isServer)
-					{
-						UpdateFlagPositionInLoadedArenaTab(oldPos,this.transform.position);
-						oldPos = this.transform.position;
-					}
+					_flag.transform.position = new Vector3 (_flag.transform.position.x, _flag.transform.position.y, _flag.transform.position.z - 1);
+					UpdateFlagPositionInLoadedArenaTab(oldPos,this.transform.position);
+					oldPos = this.transform.position;
+					_myNetView.RPC("RPC_SendNewFlagPositionToClient",RPCMode.Others,_flag.transform.position);
+					_moveBottom = false;
+
 				}
 				else
 				{
-					if(_moveRight)
+					if(_moveLeft)
 					{
-						_flag.transform.position = new Vector3 (_flag.transform.position.x + 1, _flag.transform.position.y, _flag.transform.position.z);
-						_moveRight = false;
-						if(Network.isServer)
+						_flag.transform.position = new Vector3 (_flag.transform.position.x - 1, _flag.transform.position.y, _flag.transform.position.z);
+						UpdateFlagPositionInLoadedArenaTab(oldPos,this.transform.position);
+						oldPos = this.transform.position;
+						_myNetView.RPC("RPC_SendNewFlagPositionToClient",RPCMode.Others,_flag.transform.position);
+						_moveLeft = false;
+					}
+					else
+					{
+						if(_moveRight)
 						{
+							_flag.transform.position = new Vector3 (_flag.transform.position.x + 1, _flag.transform.position.y, _flag.transform.position.z);
 							UpdateFlagPositionInLoadedArenaTab(oldPos,this.transform.position);
 							oldPos = this.transform.position;
+							_myNetView.RPC("RPC_SendNewFlagPositionToClient",RPCMode.Others,_flag.transform.position);
+							_moveRight = false;
 						}
 					}
 				}
 			}
 		}
-
 	}
 
 	void OnTriggerEnter (Collider col)
 	{
-		Debug.Log("onCollisionEnter Flag");
 		if(Network.isServer)
 		{
-			Debug.Log("onCollisionEnter Flag");
-			if(col.gameObject.tag.Contains("Blast"))
-			{
-				_colliderTag = col.gameObject.tag;
-				_myNetView.RPC ("MoveFlag", RPCMode.All,_colliderTag);
-			}
+			_colliderTag = col.gameObject.tag;
+
+			_moveRight = (_colliderTag == "RightRepulsiveBlast" || _colliderTag == "LeftAttractiveBlast");
+
+			_moveLeft = (_colliderTag == "LeftRepulsiveBlast" || _colliderTag == "RightAttractiveBlast");
+
+			_moveTop = (_colliderTag == "TopRepulsiveBlast" || _colliderTag == "BottomAttractiveBlast");
+
+			_moveBottom = (_colliderTag == "BottomRepulsiveBlast" || _colliderTag == "TopAttractiveBlast");
+		
 		}
 	}
 
@@ -100,52 +99,26 @@ public class FlagMovementScript : MonoBehaviour
 	{
 		if(Network.isServer)
 		{
-			if(col.gameObject.tag.Contains("Blast"))
-			{
-				_colliderTag = col.gameObject.tag;
-
-				_myNetView.RPC ("MoveFlag", RPCMode.All,_colliderTag);
-			}
+			_colliderTag = col.gameObject.tag;
+			
+			_moveRight = (_colliderTag == "RightRepulsiveBlast" || _colliderTag == "LeftAttractiveBlast");
+			
+			_moveLeft = (_colliderTag == "LeftRepulsiveBlast" || _colliderTag == "RightAttractiveBlast");
+			
+			_moveTop = (_colliderTag == "TopRepulsiveBlast" || _colliderTag == "BottomAttractiveBlast");
+			
+			_moveBottom = (_colliderTag == "BottomRepulsiveBlast" || _colliderTag == "TopAttractiveBlast");
+			
 		}
-	}
+	}	
 
 
 	
 	[RPC]
-	void MoveFlag(string colTag)
+
+	void RPC_SendNewFlagPositionToClient(Vector3 newPos)
 	{
-
-
-		if(colTag == "RightRepulsiveBlast" || colTag == "LeftAttractiveBlast")
-		{
-			_moveRight = true;
-		}
-		else
-		{
-			if(colTag == "LeftRepulsiveBlast" || colTag == "RightAttractiveBlast")
-			{
-				_moveLeft = true;
-			}
-			else
-			{
-				if(colTag == "TopRepulsiveBlast" || colTag == "BottomAttractiveBlast")
-				{
-					_moveTop = true;
-				}
-				else
-				{
-					if(colTag == "BottomRepulsiveBlast" || colTag == "TopAttractiveBlast")
-					{
-						_moveBottom = true;
-					}
-				}
-			}
-		}
-
-
-
-
-		
+		_flag.transform.position = newPos;
 	}
 
 

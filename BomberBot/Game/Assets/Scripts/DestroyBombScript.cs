@@ -4,11 +4,13 @@ using System.Collections;
 public class DestroyBombScript : MonoBehaviour {
 
 	public float _timeToLive = 2.5f;
+	public int _blastPower = 1;
 	private string _colliderTag;
 
 	public GameObject _explosionBlast;
 	public GameObject _implosionBlast;
 	private GameObject _bomb;
+	private GameObject _owner;
 
 	private bool _moveRight;
 	private bool _moveTop;
@@ -50,7 +52,6 @@ public class DestroyBombScript : MonoBehaviour {
 					_bomb.transform.position = new Vector3 (_bomb.transform.position.x, _bomb.transform.position.y, _bomb.transform.position.z + 1);
 					_myNetView.RPC("RPC_SendNewBombPositionToClient",RPCMode.Others,_bomb.transform.position);
 					_moveTop = false;
-					
 				}
 				else
 				{
@@ -97,15 +98,10 @@ public class DestroyBombScript : MonoBehaviour {
 			{
 				if(_colliderTag.Contains("AttractiveBlast"))
 				{
-					
-					_moveRight = ( _colliderTag == "LeftAttractiveBlast");
-					
+					_moveRight = (_colliderTag == "LeftAttractiveBlast");
 					_moveLeft = (_colliderTag == "RightAttractiveBlast");
-					
 					_moveTop = (_colliderTag == "BottomAttractiveBlast");
-					
 					_moveBottom = (_colliderTag == "TopAttractiveBlast");
-					
 				}
 			}
 		}
@@ -125,16 +121,23 @@ public class DestroyBombScript : MonoBehaviour {
 			{
 				if(_colliderTag.Contains("AttractiveBlast"))
 				{
-
 					_moveRight = ( _colliderTag == "LeftAttractiveBlast");
-
 					_moveLeft = (_colliderTag == "RightAttractiveBlast");
-
 					_moveTop = (_colliderTag == "BottomAttractiveBlast");
-
 					_moveBottom = (_colliderTag == "TopAttractiveBlast");
-								
 				}
+			}
+		}
+	}
+
+	void OnTriggerExit(Collider col)
+	{
+		if(Network.isServer)
+		{
+			if(col.collider.tag == "Player")
+			{
+				this.collider.isTrigger = false;
+				_myNetView.RPC("RPC_OnPlayerExitBombPosition",RPCMode.Others);
 			}
 		}
 	}
@@ -150,35 +153,40 @@ public class DestroyBombScript : MonoBehaviour {
 
 			Instantiate (_explosionBlast, this.transform.position, Quaternion.identity);
 
-			topBlast = (GameObject)Instantiate (_explosionBlast, this.transform.position + Vector3.forward, Quaternion.identity);
-			topBlast.tag = "TopRepulsiveBlast";
+			for(int i = 1 ; i<=_blastPower;i++)
+			{
+				topBlast = (GameObject)Instantiate (_explosionBlast, this.transform.position + Vector3.forward*i, Quaternion.identity);
+				topBlast.tag = "TopRepulsiveBlast";
 
-			bottomBlast = (GameObject)Instantiate (_explosionBlast, this.transform.position + Vector3.back, Quaternion.identity);
-			bottomBlast.tag = "BottomRepulsiveBlast";
+				bottomBlast = (GameObject)Instantiate (_explosionBlast, this.transform.position + Vector3.back*i, Quaternion.identity);
+				bottomBlast.tag = "BottomRepulsiveBlast";
 
-			leftBlast = (GameObject)Instantiate (_explosionBlast, this.transform.position + Vector3.left, Quaternion.identity);
-			leftBlast.tag = "LeftRepulsiveBlast";
+				leftBlast = (GameObject)Instantiate (_explosionBlast, this.transform.position + Vector3.left*i, Quaternion.identity);
+				leftBlast.tag = "LeftRepulsiveBlast";
 
-			rightBlast = (GameObject)Instantiate (_explosionBlast, this.transform.position + Vector3.right, Quaternion.identity);
-			rightBlast.tag = "RightRepulsiveBlast";
+				rightBlast = (GameObject)Instantiate (_explosionBlast, this.transform.position + Vector3.right*i, Quaternion.identity);
+				rightBlast.tag = "RightRepulsiveBlast";
+			}
 		}
 		else
 		{
 			// if this object is an attractive bomb
 			if(this.gameObject.CompareTag("AttractiveBomb"))
 			   {
-				
-				topBlast = (GameObject)Instantiate (_implosionBlast, this.transform.position + Vector3.forward, Quaternion.identity);
-				topBlast.tag = "TopAttractiveBlast";
-				
-				bottomBlast = (GameObject)Instantiate (_implosionBlast, this.transform.position + Vector3.back, Quaternion.identity);
-				bottomBlast.tag = "BottomAttractiveBlast";
-				
-				leftBlast = (GameObject)Instantiate (_implosionBlast, this.transform.position + Vector3.left, Quaternion.identity);
-				leftBlast.tag = "LeftAttractiveBlast";
-				
-				rightBlast = (GameObject)Instantiate (_implosionBlast, this.transform.position + Vector3.right, Quaternion.identity);
-				rightBlast.tag = "RightAttractiveBlast";
+				for(int i = _blastPower; i>0;i--)
+				{
+					topBlast = (GameObject)Instantiate (_implosionBlast, this.transform.position + Vector3.forward*i, Quaternion.identity);
+					topBlast.tag = "TopAttractiveBlast";
+					
+					bottomBlast = (GameObject)Instantiate (_implosionBlast, this.transform.position + Vector3.back*i, Quaternion.identity);
+					bottomBlast.tag = "BottomAttractiveBlast";
+					
+					leftBlast = (GameObject)Instantiate (_implosionBlast, this.transform.position + Vector3.left*i, Quaternion.identity);
+					leftBlast.tag = "LeftAttractiveBlast";
+					
+					rightBlast = (GameObject)Instantiate (_implosionBlast, this.transform.position + Vector3.right*i, Quaternion.identity);
+					rightBlast.tag = "RightAttractiveBlast";
+				}
 			}
 		}
 
@@ -190,6 +198,24 @@ public class DestroyBombScript : MonoBehaviour {
 	void RPC_SendNewBombPositionToClient(Vector3 newPos)
 	{
 		this.transform.position = newPos;
+
+	}
+
+	[RPC]
+	void RPC_OnPlayerExitBombPosition()
+	{
+		this.collider.isTrigger = false;
+	}
+
+
+	void SetBombBlastPower(int power)
+	{
+		_blastPower = power;
+	}
+
+	void SetBombOwner(GameObject obj)
+	{
+		_owner = obj;
 
 	}
 

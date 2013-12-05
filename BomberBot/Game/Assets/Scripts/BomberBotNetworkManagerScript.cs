@@ -93,9 +93,11 @@ public class BomberBotNetworkManagerScript : MonoBehaviour
 			GameSettingSingleton.Instance.CurrentMenuState = GameSettingSingleton.MenuState.clientMenu;
 			Application.LoadLevel("ClientMenu");
 	
-				
-				
-	
+	}
+
+	void OnDisconnectedFromServer(NetworkDisconnection info) {
+		GameSettingSingleton.Instance.CurrentMenuState = GameSettingSingleton.MenuState.clientMenu;
+		Application.LoadLevel("ClientMenu");
 	}
 	
 }

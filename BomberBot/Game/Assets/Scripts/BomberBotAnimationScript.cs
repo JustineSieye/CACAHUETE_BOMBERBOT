@@ -6,13 +6,24 @@ public class BomberBotAnimationScript : MonoBehaviour
 	
 	public GameObject _childBomberbot;
 	public TextMesh _playerNameTextMesh;
-	public float _animationSpeed = 2f;
+	public float _animationSpeed = 3.6f;
 
 	private Vector3 _tmpPosition;
 	private Transform _transform;
 	private Animation _animation;
+	private bool _shouldBeDead = false;
 
-	public bool _shouldBeDead = false;
+	//player stats
+	private int _maxBombeAvailable = 2;
+
+	public bool ShouldBeDead {
+		get {
+			return _shouldBeDead;
+		}
+		set {
+			_shouldBeDead = value;
+		}
+	}
 
 	public void SetPlayerName(string name)
 	{
@@ -57,7 +68,7 @@ public class BomberBotAnimationScript : MonoBehaviour
 	void Update ()
 	{
 
-		_animation["Walk"].speed = 2f;
+		_animation["Walk"].speed = _animationSpeed;
 		if(Mathf.Abs(_tmpPosition.z - _transform.position.z)>0.1f || Mathf.Abs(_tmpPosition.x - _transform.position.x)>0.1f)
 		{
 			_animation.CrossFade("Walk");
@@ -82,17 +93,6 @@ public class BomberBotAnimationScript : MonoBehaviour
 		}
 	}
 
-	void OnTriggerEnter(Collider col)
-	{
-		if(Network.isServer)
-		{
-			if(col.transform.tag.Contains("Blast"))
-			{
-				Debug.Log("Should rest in peace");
-				_shouldBeDead = true;
-			}
-		}
-	}
 
 
 }

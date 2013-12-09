@@ -231,39 +231,39 @@ public class BomberBotInputManagerScript : MonoBehaviour
 				{			
 					if(b.Value._wantToGoForward) // go forward
 					{
-						b.Value.BomberbotTransform.rotation = Quaternion.Euler(new Vector3(0,0,0));
+						b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation  = Quaternion.Euler(new Vector3(0,0,0));
 						b.Value.BomberbotTransform.position += b.Value.BomberbotTransform.forward * _bomberbotSpeed * b.Value._speedBonus * Time.deltaTime;
 						b.Value.BomberbotTransform.rigidbody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX ;
-						_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotTransform.rotation,true);
+						_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation,true);
 					}
 					else
 					{
 						
 						if(b.Value._wantToGoBackward) // go forward
 						{
-							b.Value.BomberbotTransform.rotation = Quaternion.Euler(new Vector3(0,180,0));
-							b.Value.BomberbotTransform.position += b.Value.BomberbotTransform.forward * _bomberbotSpeed * b.Value._speedBonus * Time.deltaTime;
+							b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation = Quaternion.Euler(new Vector3(0,180,0));
+							b.Value.BomberbotTransform.position -= b.Value.BomberbotTransform.forward * _bomberbotSpeed * b.Value._speedBonus * Time.deltaTime;
 							b.Value.BomberbotTransform.rigidbody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX ;
-							_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotTransform.rotation,true);
+							_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation,true);
 						}
 						else
 						{
 							if(b.Value._wantToGoRight) //go right
 							{
-								b.Value.BomberbotTransform.rotation = Quaternion.Euler(new Vector3(0,90,0));
-								b.Value.BomberbotTransform.position += b.Value.BomberbotTransform.forward * _bomberbotSpeed * b.Value._speedBonus * Time.deltaTime;
+								b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation = Quaternion.Euler(new Vector3(0,90,0));
+								b.Value.BomberbotTransform.position += b.Value.BomberbotTransform.right * _bomberbotSpeed * b.Value._speedBonus * Time.deltaTime;
 								b.Value.BomberbotTransform.rigidbody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ ;
-								_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotTransform.rotation,false);
+								_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation,false);
 							}
 							else
 							{
 								
 								if(b.Value._wantToGoLeft) //go right
 								{
-									b.Value.BomberbotTransform.rotation = Quaternion.Euler(new Vector3(0,270,0));
-									b.Value.BomberbotTransform.position += b.Value.BomberbotTransform.forward * _bomberbotSpeed * b.Value._speedBonus * Time.deltaTime;
+									b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation  = Quaternion.Euler(new Vector3(0,270,0));
+									b.Value.BomberbotTransform.position -= b.Value.BomberbotTransform.right * _bomberbotSpeed * b.Value._speedBonus * Time.deltaTime;
 									b.Value.BomberbotTransform.rigidbody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ ;
-									_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotTransform.rotation,false);
+									_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation,false);
 								}
 							}
 						}
@@ -286,9 +286,16 @@ public class BomberBotInputManagerScript : MonoBehaviour
 					{
 						if(b.Value._timeBeforeMoving == 2f)
 						{
-							b.Value.BomberbotTransform.rotation = Quaternion.Euler(new Vector3(0,0,0));
+							b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation = Quaternion.Euler(new Vector3(0,0,0));
 							b.Value.BomberbotTransform.position = GetRespawPosition(b.Value.PlayerTeamIndex);
-							_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotTransform.rotation,true);
+
+							_myNetworkView.RPC("RPC_ClientPlayerUpdate",
+							                   RPCMode.Others,
+							                   b.Key,
+							                   b.Value.BomberbotTransform.position,
+							                   b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation,
+							                   true);
+
 							b.Value._timeBeforeMoving -= Time.deltaTime;
 						}
 						else
@@ -376,7 +383,7 @@ public class BomberBotInputManagerScript : MonoBehaviour
 					                   info.sender,
 					                   b.Value.BomberbotNetPlayer,
 					                   b.Value.BomberbotTransform.position,
-					                   b.Value.BomberbotTransform.rotation,
+					                   b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation,
 					                   playerNetworkView.viewID,
 					                   b.Value.PlayerName,
 					                   b.Value.PlayerTeamIndex);
@@ -436,7 +443,7 @@ public class BomberBotInputManagerScript : MonoBehaviour
 		if(BomberBotsList.ContainsKey(p))
 		{
 			BomberBotsList[p].BomberbotTransform.position = playerPosition;
-			BomberBotsList[p].BomberbotTransform.rotation = playerRotation;
+			BomberBotsList[p].BomberbotAnimationScript._childBomberbot.transform.localRotation  = playerRotation;
 
 			if(freezeX)
 			{

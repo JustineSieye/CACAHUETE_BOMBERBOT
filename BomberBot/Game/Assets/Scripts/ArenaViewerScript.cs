@@ -269,6 +269,7 @@ public class ArenaViewerScript : MonoBehaviour {
 							_uvs[3] = new Vector2( _uvsGround.x + _uvsGround.width, _uvsGround.y );
 							_uvs[2] = new Vector2( _uvsGround.x, _uvsGround.y - _uvsGround.height );
 							_uvs[0] = new Vector2( _uvsGround.x + _uvsGround.width, _uvsGround.y - _uvsGround.height );
+							GameSettingSingleton.Instance.CurrentLoadedArena[_arenaWidth*(i+1)+j] = 0;
 						}
 						
 					}

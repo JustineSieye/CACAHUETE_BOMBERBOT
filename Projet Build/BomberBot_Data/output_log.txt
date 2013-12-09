@@ -1,4 +1,4 @@
-Initialize engine version: 4.3.0f4 (e01000627d60)
+Initialize engine version: 4.3.1f1 (cebd4d9b5122)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 9.0c [nvd3dum.dll 9.18.13.1144]
@@ -11,17 +11,17 @@ Platform assembly: C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Bui
 Loading C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\Assembly-CSharp.dll (this message is harmless)
 Loading C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-- Completed reload, in  0.052 seconds
+- Completed reload, in  0.047 seconds
 <RI> Initializing input.
 <RI> Input initialized.
-desktop: 1920x1080 60Hz; virtual: 3200x1080 at 0,0
-UnloadTime: 10.485198 ms
+desktop: 1920x1080 60Hz; virtual: 3688x1085 at -1768,-5
+UnloadTime: 0.480575 ms
 System memory in use before: 11.2 MB.
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 System memory in use after: 11.1 MB.
 
 Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 375.
-Total: 1.525614 ms (FindLiveObjects: 0.311012 ms CreateObjectMapping: 0.011155 ms MarkObjects: 0.579635 ms  DeleteObjects: 0.010709 ms)
+Total: 0.716177 ms (FindLiveObjects: 0.051761 ms CreateObjectMapping: 0.008924 ms MarkObjects: 0.074518 ms  DeleteObjects: 0.007139 ms)
 
 0
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
@@ -37,73 +37,94 @@ TeamSelectorArrowScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOM
  
 (Filename: C Line: 0)
 
-UnloadTime: 0.597037 ms
+UnloadTime: 0.489053 ms
 System memory in use before: 11.7 MB.
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 System memory in use after: 11.2 MB.
 
 Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 510.
-Total: 0.781771 ms (FindLiveObjects: 0.022310 ms CreateObjectMapping: 0.009816 ms MarkObjects: 0.090581 ms  DeleteObjects: 0.132526 ms)
+Total: 0.765261 ms (FindLiveObjects: 0.020972 ms CreateObjectMapping: 0.009370 ms MarkObjects: 0.087904 ms  DeleteObjects: 0.130295 ms)
 
-Destroy Block : AllocatedID: 5
+Destroy Block : AllocatedID: 56
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 DestroyBlockScript:DestroyBlock() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBlockScript.cs:75)
  
 (Filename: C Line: 0)
 
-Destroy Block : AllocatedID: 6
+Destroy Block : AllocatedID: 52
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 DestroyBlockScript:DestroyBlock() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBlockScript.cs:75)
  
 (Filename: C Line: 0)
 
-Destroy Block : AllocatedID: 4
+Destroy Block : AllocatedID: 48
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 DestroyBlockScript:DestroyBlock() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBlockScript.cs:75)
  
 (Filename: C Line: 0)
 
-Destroy Block : AllocatedID: 2
+Destroy Block : AllocatedID: 37
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 DestroyBlockScript:DestroyBlock() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBlockScript.cs:75)
  
 (Filename: C Line: 0)
 
-Destroy Block : AllocatedID: 3
+View ID AllocatedID: 72 not found during lookup. Strange behaviour may occur
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp Line: 1676)
+
+Could't invoke RPC function 'RPC_OnPlayerExitBombPosition' because the networkView 'AllocatedID: 72' doesn't exist
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp Line: 2469)
+
+Destroy Block : AllocatedID: 55
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 DestroyBlockScript:DestroyBlock() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBlockScript.cs:75)
  
 (Filename: C Line: 0)
 
-Destroy Block : AllocatedID: 1
+Destroy Block : AllocatedID: 61
 UnityEngine.Debug:Internal_Log(Int32, String, Object)
 UnityEngine.Debug:Log(Object)
 DestroyBlockScript:DestroyBlock() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBlockScript.cs:75)
  
 (Filename: C Line: 0)
 
-<RI.Hid> Device is not supported: MotioninJoy Virtual Game Controller (0001, 0x0000).
+Destroy Block : AllocatedID: 36
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+DestroyBlockScript:DestroyBlock() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\DestroyBlockScript.cs:75)
  
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/PlatformDependent/Win/RawInput.cpp Line: 111)
+(Filename: C Line: 0)
 
-Joystick connected ("MotioninJoy Virtual Game Controller").
+The server has disconnected from the client. Most likely the server has shut down.
  
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/PlatformDependent/Win/RawInput.cpp Line: 1303)
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/Runtime/Network/NetworkManager.cpp Line: 740)
 
-Joystick disconnected ("MotioninJoy Virtual Game Controller").
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/PlatformDependent/Win/RawInput.cpp Line: 1210)
+UnloadTime: 1.270824 ms
+System memory in use before: 12.0 MB.
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+System memory in use after: 11.4 MB.
 
-<RI.Hid> Device is not supported: MotioninJoy Virtual Game Controller (0001, 0x0000).
- 
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/PlatformDependent/Win/RawInput.cpp Line: 111)
+Unloading 329 unused Assets to reduce memory usage. Loaded Objects now: 414.
+Total: 1.173103 ms (FindLiveObjects: 0.027219 ms CreateObjectMapping: 0.012494 ms MarkObjects: 0.124048 ms  DeleteObjects: 0.461834 ms)
 
-Joystick reconnected ("MotioninJoy Virtual Game Controller").
+0
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+TeamSelectorArrowScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\TeamSelectorArrowScript.cs:18)
  
-(Filename: C:/BuildAgent/work/d3d49558e4d408f4/PlatformDependent/Win/RawInput.cpp Line: 1275)
+(Filename: C Line: 0)
+
+0
+UnityEngine.Debug:Internal_Log(Int32, String, Object)
+UnityEngine.Debug:Log(Object)
+TeamSelectorArrowScript:Start() (at C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\BomberBot\Game\Assets\Scripts\TeamSelectorArrowScript.cs:18)
+ 
+(Filename: C Line: 0)
 

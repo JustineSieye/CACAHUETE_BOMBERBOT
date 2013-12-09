@@ -43,7 +43,8 @@ public class ArenaLoaderScript : MonoBehaviour {
 			}
 		}
 	}
-	
+
+
 	#region ARENA FUNCTIONS
 	
 
@@ -145,12 +146,21 @@ public class ArenaLoaderScript : MonoBehaviour {
 				}
 			}
 		}
-		
-		
-		_cam.transform.position = new Vector3(arenaWidth/2f,arenaWidth,arenaHeight/2f);
-		_cam.transform.rotation = Quaternion.Euler(new Vector3(89,0,0));
+
+		_cam.transform.rotation = Quaternion.Euler(new Vector3(60,0,0));
+
+		float ratio = _cam.aspect*(3f/4f);
+		float realFOV = Mathf.Atan(ratio* Mathf.Tan(_cam.fieldOfView/2f*Mathf.Deg2Rad));
+
+//		if(_cam.aspect > (float)(arenaWidth/arenaHeight))
+		//			_cam.transform.position =  new Vector3(arenaWidth/2f,((arenaHeight+2)/2f)/Mathf.Tan(realFOV),-arenaHeight/2f-1f);
+//		else
+		_cam.transform.position =  new Vector3((arenaWidth-1)/2f,((arenaWidth+2)/2f)/Mathf.Tan(realFOV),-0.5f);
+
 	}
-	
+
+
+
 	[RPC]
 	public void GenerateBreakableBlock(Vector3 blockPosition,NetworkViewID id)
 	{

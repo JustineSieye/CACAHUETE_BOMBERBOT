@@ -7,6 +7,7 @@ public class BomberBotAnimationScript : MonoBehaviour
 {
 	
 	public GameObject _childBomberbot;
+
 	public TextMesh _playerNameTextMesh;
 	public float _animationSpeed = 3.6f;
 
@@ -36,8 +37,21 @@ public class BomberBotAnimationScript : MonoBehaviour
 	public void SetPlayerNameColor(int colorIndex)
 	{
 		_playerNameTextMesh.color = GameSettingSingleton.Instance.TeamColor[colorIndex];
+		foreach(var part in this.transform.GetComponentsInChildren<Renderer>())
+		{
+			foreach(var mat in part.materials)
+			{
+				if(mat.name == "mat body 2 (Instance)")
+				{
+					mat.color = GameSettingSingleton.Instance.TeamColor[colorIndex];
+				}
+			}
+
+		}
 		
 	}
+
+
 	public float AnimationSpeed
 	{
 		get {
@@ -61,9 +75,10 @@ public class BomberBotAnimationScript : MonoBehaviour
 		{
 			_animation = _childBomberbot.animation;
 		}
-
+		this.
 		_tmpPosition = _transform.position;
 		_animation.wrapMode = WrapMode.Once;
+
 	}
 	
 	// Update is called once per frame

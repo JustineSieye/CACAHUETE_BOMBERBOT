@@ -25,7 +25,8 @@ public class TextButtonScript : MonoBehaviour {
 
 		}else
 		{
-			//this.renderer.materials[0] = null;
+			this.GetComponentsInChildren<MeshRenderer>()[0].renderer.materials[0].color = _normalColor;
+			this.GetComponentsInChildren<MeshRenderer>()[1].renderer.materials[0].color = _normalColor;
 		}	
 	}
 
@@ -38,8 +39,10 @@ public class TextButtonScript : MonoBehaviour {
 			_textMesh.color = _hoverColor;
 		}else
 		{
+			Debug.Log("toto");
 			this.GetComponentsInChildren<MeshRenderer>()[0].renderer.materials[0].color = _hoverColor;
 			this.GetComponentsInChildren<MeshRenderer>()[1].renderer.materials[0].color = _hoverColor;
+
 		}
 
 	}

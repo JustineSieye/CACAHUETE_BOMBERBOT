@@ -42,7 +42,9 @@ public class GameSettingSingleton
 	private ArrayList redHQRespawnPosition = new ArrayList();
 	private ArrayList greenHQRespawnPosition = new ArrayList();
 	private ArrayList blueHQRespawnPosition = new ArrayList();
-	
+
+
+
 	public ArrayList BlueHQRespawnPosition 
 	{
 		get {
@@ -158,7 +160,7 @@ public class GameSettingSingleton
 		}
 	}
 
-	private Color[] teamColor = {Color.green,Color.blue, Color.red, Color.yellow};
+	private Color[] teamColor = {new Color(0.15f,0.43f,0.15f),new Color(0.15f,0.25f,0.5f), new Color(0.62f,0.14f,0.1f), new Color(0.6f,0.56f,0.2f)};
 
 	public Color[] TeamColor
 	{

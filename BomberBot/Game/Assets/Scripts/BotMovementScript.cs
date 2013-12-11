@@ -11,8 +11,7 @@ public class BotMovementScript : MonoBehaviour {
 	private float _changeBotIntents;
 	private float _timeBeforeChangeMoveDirection = 2.5f;
 	private Vector3 _moveDirection;
-	[SerializeField]
-	private float _botSpeed = 2f;
+	public float _botSpeed = 4f;
 	public float botSpeed {
 		get {
 			return this._botSpeed;
@@ -73,14 +72,14 @@ public class BotMovementScript : MonoBehaviour {
 					_changeBotIntents = Random.Range(0f,1f);
 					if(_changeBotIntents > 0.7f)
 					{
-						_rand = Random.Range(1,5);
+						_rand = Random.Range(3,5);
 						RandomActionBot(_rand);
 					}
 					else
 					{
 						_rand = Random.Range(5,7);
 						RandomActionBot(_rand);
-						_rand = Random.Range(1,5);
+						_rand = Random.Range(3,5);
 					}
 					_timeBeforeChangeMoveDirection = Random.Range(1f,3f);
 				}

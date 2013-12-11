@@ -1,0 +1,285 @@
+Initialize engine version: 4.3.1f1 (cebd4d9b5122)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [nvd3dum.dll 9.18.13.1144]
+    Renderer: NVIDIA GeForce GTX 660M  
+    Vendor:   NVIDIA
+    VRAM:     1994 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=0 INTZ=1 RAWZ=0 NULL=1 RESZ=0 SlowINTZ=0
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.105 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1024x768 60Hz; virtual: 1024x768 at 0,0
+Initialize engine version: 4.3.1f1 (cebd4d9b5122)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [nvd3dum.dll 9.18.13.1144]
+    Renderer: NVIDIA GeForce GTX 660M  
+    Vendor:   NVIDIA
+    VRAM:     1994 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=0 INTZ=1 RAWZ=0 NULL=1 RESZ=0 SlowINTZ=0
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.109 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1024x768 60Hz; virtual: 1024x768 at 0,0
+Initialize engine version: 4.3.1f1 (cebd4d9b5122)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [nvd3dum.dll 9.18.13.1144]
+    Renderer: NVIDIA GeForce GTX 660M  
+    Vendor:   NVIDIA
+    VRAM:     1994 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=0 INTZ=1 RAWZ=0 NULL=1 RESZ=0 SlowINTZ=0
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.123 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1024x768 60Hz; virtual: 1024x768 at 0,0
+Initialize engine version: 4.3.1f1 (cebd4d9b5122)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [nvd3dum.dll 9.18.13.1144]
+    Renderer: NVIDIA GeForce GTX 660M  
+    Vendor:   NVIDIA
+    VRAM:     1994 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=0 INTZ=1 RAWZ=0 NULL=1 RESZ=0 SlowINTZ=0
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.132 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1024x768 60Hz; virtual: 1024x768 at 0,0
+UnloadTime: 1.314113 ms
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 376.
+Total: 1.957561 ms (FindLiveObjects: 0.046406 ms CreateObjectMapping: 0.027665 ms MarkObjects: 0.170009 ms  DeleteObjects: 0.237388 ms)
+
+UnloadTime: 9.177824 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 367 unused Assets to reduce memory usage. Loaded Objects now: 514.
+Total: 3.139594 ms (FindLiveObjects: 0.058454 ms CreateObjectMapping: 0.101291 ms MarkObjects: 0.217308 ms  DeleteObjects: 1.519820 ms)
+
+UnloadTime: 1.231563 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 381.
+Total: 1.858054 ms (FindLiveObjects: 0.047299 ms CreateObjectMapping: 0.026773 ms MarkObjects: 0.163762 ms  DeleteObjects: 0.234710 ms)
+
+UnloadTime: 1.071370 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 513.
+Total: 1.547932 ms (FindLiveObjects: 0.040605 ms CreateObjectMapping: 0.019633 ms MarkObjects: 0.163316 ms  DeleteObjects: 0.188304 ms)
+
+UnloadTime: 1.036119 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 381.
+Total: 1.341779 ms (FindLiveObjects: 0.032573 ms CreateObjectMapping: 0.017848 ms MarkObjects: 0.133865 ms  DeleteObjects: 0.164208 ms)
+
+UnloadTime: 1.031657 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 513.
+Total: 1.477429 ms (FindLiveObjects: 0.046406 ms CreateObjectMapping: 0.023649 ms MarkObjects: 0.191427 ms  DeleteObjects: 0.210168 ms)
+
+UnloadTime: 1.430130 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 381.
+Total: 1.655917 ms (FindLiveObjects: 0.036589 ms CreateObjectMapping: 0.021418 ms MarkObjects: 0.149483 ms  DeleteObjects: 0.188750 ms)
+
+UnloadTime: 0.830859 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 513.
+Total: 1.453780 ms (FindLiveObjects: 0.044621 ms CreateObjectMapping: 0.022310 ms MarkObjects: 0.185180 ms  DeleteObjects: 0.218200 ms)
+
+Initialize engine version: 4.3.1f1 (cebd4d9b5122)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [nvd3dum.dll 9.18.13.1144]
+    Renderer: NVIDIA GeForce GTX 660M  
+    Vendor:   NVIDIA
+    VRAM:     1994 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=0 INTZ=1 RAWZ=0 NULL=1 RESZ=0 SlowINTZ=0
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Gstn\Documents\GitHub\CACAHUETE_BOMBERBOT\Projet Build\BomberBot_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.114 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1024x768 60Hz; virtual: 1024x768 at 0,0
+UnloadTime: 2.335954 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 336 unused Assets to reduce memory usage. Loaded Objects now: 383.
+Total: 2.070454 ms (FindLiveObjects: 0.060239 ms CreateObjectMapping: 0.036589 ms MarkObjects: 0.183395 ms  DeleteObjects: 0.920102 ms)
+
+UnloadTime: 0.884405 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 380.
+Total: 1.203897 ms (FindLiveObjects: 0.029896 ms CreateObjectMapping: 0.017848 ms MarkObjects: 0.145467 ms  DeleteObjects: 0.007139 ms)
+
+UnloadTime: 0.946429 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 380.
+Total: 1.347580 ms (FindLiveObjects: 0.035251 ms CreateObjectMapping: 0.030789 ms MarkObjects: 0.175810 ms  DeleteObjects: 0.015617 ms)
+
+UnloadTime: 2.612609 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 336 unused Assets to reduce memory usage. Loaded Objects now: 383.
+Total: 1.828603 ms (FindLiveObjects: 0.053100 ms CreateObjectMapping: 0.023649 ms MarkObjects: 0.153499 ms  DeleteObjects: 0.738045 ms)
+
+UnloadTime: 0.942413 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 380.
+Total: 1.461812 ms (FindLiveObjects: 0.037036 ms CreateObjectMapping: 0.028111 ms MarkObjects: 0.175363 ms  DeleteObjects: 0.008478 ms)
+
+UnloadTime: 0.870126 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 380.
+Total: 1.429238 ms (FindLiveObjects: 0.037036 ms CreateObjectMapping: 0.029004 ms MarkObjects: 0.165993 ms  DeleteObjects: 0.013832 ms)
+
+UnloadTime: 0.831305 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 513.
+Total: 1.401572 ms (FindLiveObjects: 0.045068 ms CreateObjectMapping: 0.024095 ms MarkObjects: 0.193212 ms  DeleteObjects: 0.210615 ms)
+
+UnloadTime: 1.417190 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 381.
+Total: 1.319022 ms (FindLiveObjects: 0.036589 ms CreateObjectMapping: 0.018294 ms MarkObjects: 0.145021 ms  DeleteObjects: 0.178487 ms)
+
+UnloadTime: 0.732244 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 513.
+Total: 1.281986 ms (FindLiveObjects: 0.042836 ms CreateObjectMapping: 0.019633 ms MarkObjects: 0.164208 ms  DeleteObjects: 0.192766 ms)
+
+UnloadTime: 2.438584 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 336 unused Assets to reduce memory usage. Loaded Objects now: 383.
+Total: 2.100350 ms (FindLiveObjects: 0.050868 ms CreateObjectMapping: 0.027219 ms MarkObjects: 0.179826 ms  DeleteObjects: 0.845584 ms)
+
+UnloadTime: 0.930812 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 380.
+Total: 1.256997 ms (FindLiveObjects: 0.049976 ms CreateObjectMapping: 0.022757 ms MarkObjects: 0.155284 ms  DeleteObjects: 0.009370 ms)
+
+UnloadTime: 0.859863 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 380.
+Total: 1.181140 ms (FindLiveObjects: 0.035697 ms CreateObjectMapping: 0.022310 ms MarkObjects: 0.151268 ms  DeleteObjects: 0.012047 ms)
+
+The server has disconnected from the client. Most likely the server has shut down.
+ 
+(Filename:  Line: 740)
+
+The server has disconnected from the client. Most likely the server has shut down.
+ 
+(Filename:  Line: 740)
+
+UnloadTime: 2.031187 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 333 unused Assets to reduce memory usage. Loaded Objects now: 383.
+Total: 2.066438 ms (FindLiveObjects: 0.061131 ms CreateObjectMapping: 0.028111 ms MarkObjects: 0.198567 ms  DeleteObjects: 0.768834 ms)
+
+UnloadTime: 2.213244 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 333 unused Assets to reduce memory usage. Loaded Objects now: 383.
+Total: 2.004860 ms (FindLiveObjects: 0.058900 ms CreateObjectMapping: 0.026773 ms MarkObjects: 0.186073 ms  DeleteObjects: 0.750985 ms)
+
+UnloadTime: 0.845584 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 380.
+Total: 1.422544 ms (FindLiveObjects: 0.036589 ms CreateObjectMapping: 0.023649 ms MarkObjects: 0.170009 ms  DeleteObjects: 0.018294 ms)
+
+UnloadTime: 0.800069 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 380.
+Total: 1.169538 ms (FindLiveObjects: 0.034358 ms CreateObjectMapping: 0.021864 ms MarkObjects: 0.156176 ms  DeleteObjects: 0.012494 ms)
+
+rightArrow 1 9
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+rightArrow 2 9
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+rightArrow 3 9
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+rightArrow 4 9
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+rightArrow 5 9
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+rightArrow 6 9
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+rightArrow 7 9
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+rightArrow 8 9
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+rightArrow 9 9
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+leftArrow 8 9
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+leftArrow 7 9
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+
+leftArrow 6 9
+ 
+(Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
+

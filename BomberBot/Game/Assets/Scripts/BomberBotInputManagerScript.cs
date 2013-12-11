@@ -1,3 +1,5 @@
+/* Gardette Augustin */
+
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -234,7 +236,7 @@ public class BomberBotInputManagerScript : MonoBehaviour
 						b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation  = Quaternion.Euler(new Vector3(0,0,0));
 						b.Value.BomberbotTransform.position += b.Value.BomberbotTransform.forward * _bomberbotSpeed * b.Value._speedBonus * Time.deltaTime;
 						b.Value.BomberbotTransform.rigidbody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX ;
-						_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation,true);
+						_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Value.BomberbotNetPlayer,b.Value.BomberbotTransform.position,b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation,true);
 					}
 					else
 					{
@@ -244,7 +246,7 @@ public class BomberBotInputManagerScript : MonoBehaviour
 							b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation = Quaternion.Euler(new Vector3(0,180,0));
 							b.Value.BomberbotTransform.position -= b.Value.BomberbotTransform.forward * _bomberbotSpeed * b.Value._speedBonus * Time.deltaTime;
 							b.Value.BomberbotTransform.rigidbody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX ;
-							_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation,true);
+							_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Value.BomberbotNetPlayer,b.Value.BomberbotTransform.position,b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation,true);
 						}
 						else
 						{
@@ -253,7 +255,7 @@ public class BomberBotInputManagerScript : MonoBehaviour
 								b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation = Quaternion.Euler(new Vector3(0,90,0));
 								b.Value.BomberbotTransform.position += b.Value.BomberbotTransform.right * _bomberbotSpeed * b.Value._speedBonus * Time.deltaTime;
 								b.Value.BomberbotTransform.rigidbody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ ;
-								_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation,false);
+								_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Value.BomberbotNetPlayer,b.Value.BomberbotTransform.position,b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation,false);
 							}
 							else
 							{
@@ -263,7 +265,7 @@ public class BomberBotInputManagerScript : MonoBehaviour
 									b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation  = Quaternion.Euler(new Vector3(0,270,0));
 									b.Value.BomberbotTransform.position -= b.Value.BomberbotTransform.right * _bomberbotSpeed * b.Value._speedBonus * Time.deltaTime;
 									b.Value.BomberbotTransform.rigidbody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionZ ;
-									_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Key,b.Value.BomberbotTransform.position,b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation,false);
+									_myNetworkView.RPC("RPC_ClientPlayerUpdate",RPCMode.Others,b.Value.BomberbotNetPlayer,b.Value.BomberbotTransform.position,b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation,false);
 								}
 							}
 						}
@@ -272,7 +274,7 @@ public class BomberBotInputManagerScript : MonoBehaviour
 					if(b.Value._wantToPutAttrictiveBomb || b.Value._wantToPutRepulsiveBomb) 
 					{
 						NetworkViewID _netViewBomb = Network.AllocateViewID();
-						_myNetworkView.RPC("RPC_InstantiateBomb",RPCMode.All,b.Key,b.Value.BomberbotTransform.position,_netViewBomb);
+						_myNetworkView.RPC("RPC_InstantiateBomb",RPCMode.All,b.Value.BomberbotNetPlayer,b.Value.BomberbotTransform.position,_netViewBomb);
 					}
 				}
 				else
@@ -291,7 +293,7 @@ public class BomberBotInputManagerScript : MonoBehaviour
 
 							_myNetworkView.RPC("RPC_ClientPlayerUpdate",
 							                   RPCMode.Others,
-							                   b.Key,
+							                   b.Value.BomberbotNetPlayer,
 							                   b.Value.BomberbotTransform.position,
 							                   b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation,
 							                   true);
@@ -312,25 +314,23 @@ public class BomberBotInputManagerScript : MonoBehaviour
 		//request for the players list
 		if(Network.isClient)
 		{
-			_myNetworkView.RPC("RPC_SendPlayerConfToServer", RPCMode.Server,GameSettingSingleton.Instance.PlayerName,GameSettingSingleton.Instance.IndexTeamSelected);
-			_myNetworkView.RPC("RPC_SendAllPlayers", RPCMode.Server);
+			_myNetworkView.RPC("RPC_SendPlayerConfToServer", RPCMode.Server,GameSettingSingleton.Instance.PlayerName,GameSettingSingleton.Instance.IndexTeamSelected,Network.player);
+			_myNetworkView.RPC("RPC_SendAllPlayers", RPCMode.Server,Network.player);
 		}
 	}
 	
 
 
 	[RPC]
-	void RPC_SendPlayerConfToServer(string playerName,int playerTeamIndex, NetworkMessageInfo info )
+	void RPC_SendPlayerConfToServer(string playerName,int playerTeamIndex,NetworkPlayer netPlayer, NetworkMessageInfo info )
 	{
 		if(Network.isServer)
 		{
 			NetworkViewID newViewID = Network.AllocateViewID();
 			Vector3 respawn = GetRespawPosition(playerTeamIndex);
 
-			_myNetworkView.RPC("RPC_AddPlayerConnected", RPCMode.All, info.sender, respawn, Quaternion.identity, newViewID, playerName, playerTeamIndex);
+			_myNetworkView.RPC("RPC_AddPlayerConnected", RPCMode.All, netPlayer, respawn, Quaternion.identity, newViewID, playerName, playerTeamIndex);
 
-			Debug.Log("Player " + newViewID.ToString() + " connected from " + info.sender.ipAddress + ":" + info.sender.port);
-			Debug.Log("There are now " + Network.connections.Length + " players.");
 		}    
 	}
 
@@ -338,7 +338,7 @@ public class BomberBotInputManagerScript : MonoBehaviour
 	{
 		Vector3 respawn = new Vector3(0,1,0);
 		int len;
-		//Vector3 respawn = Vector3.up*2;
+
 		switch (GameSettingSingleton.Instance.Team[playerTeamIndex])
 		{
 		case "green":
@@ -367,7 +367,7 @@ public class BomberBotInputManagerScript : MonoBehaviour
 	}
 
 	[RPC]
-	void RPC_SendAllPlayers(NetworkMessageInfo info)
+	void RPC_SendAllPlayers(NetworkPlayer netPlayerSender,NetworkMessageInfo info)
 	{
 		// Send all players already connected to the new connected player
 		if(Network.isServer)
@@ -377,10 +377,10 @@ public class BomberBotInputManagerScript : MonoBehaviour
 				NetworkView playerNetworkView = b.Value.BomberbotTransform.gameObject.GetComponent<NetworkView>();
 				NetworkPlayer netPlayer = b.Key;
 				
-				if(netPlayer.ToString() != info.sender.ToString())
+				if(b.Value.BomberbotNetPlayer.ToString() != netPlayerSender.ToString())
 				{
 					_myNetworkView.RPC("RPC_AddPlayerConnected",
-					                   info.sender,
+					                   netPlayerSender,
 					                   b.Value.BomberbotNetPlayer,
 					                   b.Value.BomberbotTransform.position,
 					                   b.Value.BomberbotAnimationScript._childBomberbot.transform.localRotation,
@@ -393,31 +393,28 @@ public class BomberBotInputManagerScript : MonoBehaviour
 	}
 	
 	[RPC]
-	void RPC_AddPlayerConnected(NetworkPlayer p,Vector3 playerPosition, Quaternion playerRotation, NetworkViewID newPlayerView,string name,int team)
+	void RPC_AddPlayerConnected(NetworkPlayer p,Vector3 playerPosition, Quaternion playerRotation, NetworkViewID newPlayerViewID,string name,int team)
 	{
 		if(!BomberBotsList.ContainsKey(p))
 		{
-			
-			BomberBotsList.Add(p, new BomberBot());
+			BomberBot bb = new BomberBot();
 
 			GameObject go_bb = (GameObject)Instantiate(_BomberbotPrefab, playerPosition, playerRotation);
-			go_bb.GetComponent<NetworkView>().viewID = newPlayerView;
-			BomberBotsList[p].BomberbotTransform = go_bb.GetComponent<Transform>();
+			go_bb.GetComponent<NetworkView>().viewID = newPlayerViewID;
+			bb.BomberbotTransform = go_bb.GetComponent<Transform>();
+			bb.BomberbotNetPlayer = p;
+			bb.PlayerName = name;
+			bb.PlayerTeamIndex = team;
 
-			BomberBotsList[p].PlayerName = name;
-			BomberBotsList[p].PlayerTeamIndex = team;
-
-			BomberBotsList[p].BomberbotAnimationScript =  go_bb.GetComponent<BomberBotAnimationScript>();
-			if(BomberBotsList[p].BomberbotAnimationScript != null)
+			bb.BomberbotAnimationScript =  go_bb.GetComponent<BomberBotAnimationScript>();
+			if(bb.BomberbotAnimationScript != null)
 			{
-				BomberBotsList[p].BomberbotAnimationScript.SetPlayerName(name+" "+newPlayerView.ToString());
-				BomberBotsList[p].BomberbotAnimationScript.SetPlayerNameColor(team);
+				bb.BomberbotAnimationScript.SetPlayerName(name+" "+p.ToString());
+				bb.BomberbotAnimationScript.SetPlayerNameColor(team);
 			}
+			BomberBotsList.Add(p, bb);
 		}
-		else
-		{
-			Debug.Log("Player :"+p.ToString()+" already exist!");
-		}
+
 	}
 	
 	void OnPlayerDisconnected(NetworkPlayer p)

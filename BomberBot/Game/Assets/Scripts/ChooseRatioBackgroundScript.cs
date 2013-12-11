@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿/* Augustin Gardette */
+
+using UnityEngine;
 using System.Collections;
 
 public class ChooseRatioBackgroundScript : MonoBehaviour {
@@ -10,44 +12,49 @@ public class ChooseRatioBackgroundScript : MonoBehaviour {
 	public GameObject _4_x_3_background;
 	public GameObject _5_x_4_background;
 	// Use this for initialization
-	void Start ()	 {
-		
-		Screen.SetResolution(800,600,false);
+	private GameObject _currentBackground;
+
+	void Start ()
+	{
 		InstantiateBackgroungDependingOnScreenSize();
-		
 	}
 	
 	// Update is called once per frame
-	void Update () {
-	
+	void Update () 
+	{
+		if(_ratioScreen != this.camera.aspect)
+		{
+			Destroy(_currentBackground);
+			InstantiateBackgroungDependingOnScreenSize();
+		}
 	}
 	
 	void InstantiateBackgroungDependingOnScreenSize()
 	{
-		_ratioScreen = (float)Screen.width/Screen.height;
+		_ratioScreen = this.camera.aspect;
 
 		if(_ratioScreen == 4f/3f)
 		{
-			GameObject.Instantiate(_4_x_3_background,Vector3.zero,Quaternion.identity);
+			_currentBackground = (GameObject) Instantiate(_4_x_3_background,Vector3.zero,Quaternion.identity);
 		}
 		else
 		{
 			if(_ratioScreen == 16f/9f)
 			{
-				GameObject.Instantiate(_16_x_9_background,Vector3.zero,Quaternion.identity);
+				_currentBackground = (GameObject) Instantiate(_16_x_9_background,Vector3.zero,Quaternion.identity);
 			}
 			else
 			{
 				if(_ratioScreen == 5f/4f)
 				{
-					GameObject.Instantiate(_5_x_4_background,Vector3.zero,Quaternion.identity);
+					_currentBackground = (GameObject) Instantiate(_5_x_4_background,Vector3.zero,Quaternion.identity);
 
 				}
 				else
 				{
 					if(_ratioScreen == 16f/10f)
 					{
-						GameObject.Instantiate(_16_x_10_background,Vector3.zero,Quaternion.identity);
+						_currentBackground = (GameObject) Instantiate(_16_x_10_background,Vector3.zero,Quaternion.identity);
 					}
 				}
 			}

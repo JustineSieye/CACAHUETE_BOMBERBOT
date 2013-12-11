@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\BomberBotAnimationScript.cs" />
      <Compile Include="Assets\Scripts\BomberBotInputManagerScript.cs" />
      <Compile Include="Assets\Scripts\BomberBotNetworkManagerScript.cs" />
+     <Compile Include="Assets\Scripts\BotMovementScript.cs" />
      <Compile Include="Assets\Scripts\ChangeQualityScript.cs" />
      <Compile Include="Assets\Scripts\ChangeResolutionScript.cs" />
      <Compile Include="Assets\Scripts\ChooseRatioBackgroundScript.cs" />
@@ -63,8 +64,8 @@
      <Compile Include="Assets\Scripts\EditArenaElementScript.cs" />
      <Compile Include="Assets\Scripts\Editable3DTextScript.cs" />
      <Compile Include="Assets\Scripts\FlagMovementScript.cs" />
+     <Compile Include="Assets\Scripts\FullScreenScript.cs" />
      <Compile Include="Assets\Scripts\GameSettingSingleton.cs" />
-     <Compile Include="Assets\Scripts\GraphicsSettingMenuScript.cs" />
      <Compile Include="Assets\Scripts\MoveScript.cs" />
      <Compile Include="Assets\Scripts\PlayerNumberIteratorScript.cs" />
      <Compile Include="Assets\Scripts\ServerSideMenuScript.cs" />

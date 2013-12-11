@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿/* Gardette Augustin */
+
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -24,7 +26,7 @@ public class ArenaLoaderScript : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		_breakableBlockList = new Dictionary<NetworkViewID, Vector3>(); 
+		GameSettingSingleton.Instance.BreakableBlockList.Clear();
 		_cam = GameObject.Find("Main Camera").camera;
 		_myNetView = this.GetComponent<NetworkView>();
 
@@ -36,7 +38,7 @@ public class ArenaLoaderScript : MonoBehaviour {
 			_myNetView.RPC("RPC_DestroyArena", RPCMode.All);
 			_myNetView.RPC("RPC_GenerateArena", RPCMode.All,GameSettingSingleton.Instance.CurrentLoadedArena);
 			
-			foreach(var blockPos in _breakableBlockList)
+			foreach(var blockPos in GameSettingSingleton.Instance.BreakableBlockList)
 			{
 				_myNetView.RPC("GenerateBreakableBlock",RPCMode.All,blockPos.Value,blockPos.Key);
 				
@@ -59,6 +61,8 @@ public class ArenaLoaderScript : MonoBehaviour {
 
 	}
 
+
+
 	[RPC]
 	public void RPC_GenerateArena(byte[] arenaFile)
 	{
@@ -66,10 +70,7 @@ public class ArenaLoaderScript : MonoBehaviour {
 		 
 		int arenaWidth = arenaFile[0];
 		int arenaHeight = arenaFile[1];
-		//Debug.Log ("width"+arenaWidth);
-		//Debug.Log ("height"+arenaHeight);
-		
-		
+
 		for(int i = -1;i<=arenaHeight;i++)
 		{ 
 			for(int j = -1;j<=arenaWidth;j++)
@@ -97,8 +98,9 @@ public class ArenaLoaderScript : MonoBehaviour {
 					break;
 					
 					case 2: //breakable block
+
 						NetworkViewID _breakBlockNetView = Network.AllocateViewID();
-						_breakableBlockList.Add(_breakBlockNetView,new Vector3(j,1,arenaHeight-i));
+						GameSettingSingleton.Instance.BreakableBlockList.Add(_breakBlockNetView,new Vector3(j,1,arenaHeight-i));
 						_arenaElements.Add(Instantiate(_Ground,new Vector3(j,0,arenaHeight-i),Quaternion.identity));
 
 
@@ -152,9 +154,6 @@ public class ArenaLoaderScript : MonoBehaviour {
 		float ratio = _cam.aspect*(3f/4f);
 		float realFOV = Mathf.Atan(ratio* Mathf.Tan(_cam.fieldOfView/2f*Mathf.Deg2Rad));
 
-//		if(_cam.aspect > (float)(arenaWidth/arenaHeight))
-		//			_cam.transform.position =  new Vector3(arenaWidth/2f,((arenaHeight+2)/2f)/Mathf.Tan(realFOV),-arenaHeight/2f-1f);
-//		else
 		_cam.transform.position =  new Vector3((arenaWidth-1)/2f,((arenaWidth+2)/2f)/Mathf.Tan(realFOV),-0.5f);
 
 	}
@@ -164,12 +163,9 @@ public class ArenaLoaderScript : MonoBehaviour {
 	[RPC]
 	public void GenerateBreakableBlock(Vector3 blockPosition,NetworkViewID id)
 	{
-	
-			//Debug.Log("GenerateBreakableBlock");
-			GameObject newBreakBlock = (GameObject)Instantiate(_BreakableBlock,blockPosition,Quaternion.identity);
-			newBreakBlock.networkView.viewID = id;
-			_arenaElements.Add(newBreakBlock);
-
+		GameObject newBreakBlock = (GameObject)Instantiate(_BreakableBlock,blockPosition,Quaternion.identity);
+		newBreakBlock.networkView.viewID = id;
+		_arenaElements.Add(newBreakBlock);
 	}
 
 	[RPC]
@@ -177,7 +173,7 @@ public class ArenaLoaderScript : MonoBehaviour {
 	
 		_myNetView.RPC("RPC_GenerateArena", info.sender,GameSettingSingleton.Instance.CurrentLoadedArena);
 	
-		foreach(var blockPos in _breakableBlockList)
+		foreach(var blockPos in GameSettingSingleton.Instance.BreakableBlockList)
 		{
 			_myNetView.RPC("GenerateBreakableBlock",info.sender,blockPos.Value,blockPos.Key);
 		}
@@ -199,10 +195,7 @@ public class ArenaLoaderScript : MonoBehaviour {
 
 	void OnDisconnectedFromServer()
 	{
-		
-		//_myNetView.RPC("RPC_DestroyArena", RPCMode.AllBuffered);
 		DestroyArena();
-
 	}
 	
 	void OnApplicationQuit()

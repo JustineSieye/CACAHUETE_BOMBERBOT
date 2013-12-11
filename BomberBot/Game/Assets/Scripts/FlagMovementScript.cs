@@ -1,3 +1,4 @@
+/* Justine Sieye*/
 using UnityEngine;
 using System.Collections;
 
@@ -97,8 +98,6 @@ public class FlagMovementScript : MonoBehaviour
 
 	void OnCollisionEnter (Collision col)
 	{
-//		if(this.rigidbody.constraints != RigidbodyConstraints.FreezeAll)
-//			this.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 
 		if(Network.isServer)
 		{
@@ -124,7 +123,6 @@ public class FlagMovementScript : MonoBehaviour
 		_flag.transform.position = newPos;
 	}
 
-
 	void UpdateFlagPositionInLoadedArenaTab(Vector3 prevPos,Vector3 newPos)
 	{
 		if(Network.isServer)
@@ -135,14 +133,8 @@ public class FlagMovementScript : MonoBehaviour
 			int prevIndex = arenaWidth*(arenaHeight-(int)prevPos.z+1)+(int)prevPos.x;
 			int currentIndex = arenaWidth*(arenaHeight-(int)newPos.z+1)+(int)newPos.x;
 
-			//Debug.Log ("[OLD] Flag move from ("+prevPos.x +","+prevPos.z +") --- bytes["+prevIndex+"] = "+GameSettingSingleton.Instance.CurrentLoadedArena[prevIndex]+" ");
-			//Debug.Log ("[OLD] To ("+newPos.x +","+newPos.z +") --- bytes["+currentIndex+"] = "+GameSettingSingleton.Instance.CurrentLoadedArena[currentIndex]+" "); 
-
 			GameSettingSingleton.Instance.CurrentLoadedArena[prevIndex]= byte.Parse("0");
 			GameSettingSingleton.Instance.CurrentLoadedArena[currentIndex] = byte.Parse("3");
-
-			//Debug.Log ("[NEW] Flag move from ("+prevPos.x +","+prevPos.z +") --- bytes["+prevIndex+"] = "+GameSettingSingleton.Instance.CurrentLoadedArena[prevIndex]+" ");
-			//Debug.Log ("[NEW] ("+newPos.x +","+newPos.z +") --- bytes["+currentIndex+"] = "+GameSettingSingleton.Instance.CurrentLoadedArena[currentIndex]+" "); 
 		}
 	}
 	

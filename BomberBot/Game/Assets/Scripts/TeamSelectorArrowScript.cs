@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿/* Augustin Gardette */
+
+using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(BoxCollider2D))]
@@ -15,7 +17,6 @@ public class TeamSelectorArrowScript : MonoBehaviour
 	void Start()
 	{
 		_textMesh = this.GetComponent<TextMesh>();
-		Debug.Log(GameSettingSingleton.Instance.IndexTeamSelected);
 		GameSettingSingleton.Instance.IndexTeamSelected = 0;
 	}
 
@@ -26,7 +27,6 @@ public class TeamSelectorArrowScript : MonoBehaviour
 			_teamSelector.transform.Rotate(new Vector3(0,-90,0));
 			GameSettingSingleton.Instance.IndexTeamSelected--;
 			GameSettingSingleton.Instance.IndexTeamSelected = (GameSettingSingleton.Instance.IndexTeamSelected<0)?3:GameSettingSingleton.Instance.IndexTeamSelected;
-
 		}
 		else
 		{

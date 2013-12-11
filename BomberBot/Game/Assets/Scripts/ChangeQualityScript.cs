@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿/* Augustin Gardette */
+
+using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(BoxCollider2D))]
@@ -19,7 +21,7 @@ public class ChangeQualityScript : MonoBehaviour {
 		
 		if(_action == Action.decrease)
 		{
-			_qualityField.text = " Players";
+			_qualityField.text = QualitySettings.names[QualitySettings.GetQualityLevel()];
 		}
 	}
 	
@@ -27,17 +29,15 @@ public class ChangeQualityScript : MonoBehaviour {
 	{
 		if(_action == Action.decrease)
 		{
-			GameSettingSingleton.Instance.MaxPlayerNumber--;
-			GameSettingSingleton.Instance.MaxPlayerNumber = (GameSettingSingleton.Instance.MaxPlayerNumber<0)?0:GameSettingSingleton.Instance.MaxPlayerNumber;
-			_qualityField.text = GameSettingSingleton.Instance.MaxPlayerNumber+" Players";
+			QualitySettings.DecreaseLevel();
+			_qualityField.text = QualitySettings.names[QualitySettings.GetQualityLevel()];
 		}
 		else
 		{
 			if(_action == Action.increase)
 			{
-				GameSettingSingleton.Instance.MaxPlayerNumber++;
-				GameSettingSingleton.Instance.MaxPlayerNumber = (GameSettingSingleton.Instance.MaxPlayerNumber>32)?32:GameSettingSingleton.Instance.MaxPlayerNumber;
-				_qualityField.text = ""+GameSettingSingleton.Instance.MaxPlayerNumber+" Players";
+				QualitySettings.IncreaseLevel();
+				_qualityField.text = QualitySettings.names[QualitySettings.GetQualityLevel()];
 			}
 		}
 		

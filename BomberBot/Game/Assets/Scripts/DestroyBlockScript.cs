@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿/* Justine Sieye */
+
+using UnityEngine;
 using System.Collections;
 
 public class DestroyBlockScript : MonoBehaviour {
@@ -34,11 +36,9 @@ public class DestroyBlockScript : MonoBehaviour {
 				int arenaHeight = GameSettingSingleton.Instance.CurrentLoadedArena[1];
 				Vector3 blockPos = this.transform.position;
 				int currentIndex = arenaWidth*(arenaHeight-(int)blockPos.z+1)+(int)blockPos.x;
-				Debug.Log("[OLD] block position ("+blockPos.x+","+blockPos.z+") --- bytes["+currentIndex+"] ="+GameSettingSingleton.Instance.CurrentLoadedArena[currentIndex]+" ");
 				GameSettingSingleton.Instance.CurrentLoadedArena[currentIndex] = byte.Parse("0");
-				Debug.Log("[NEW] block position ("+blockPos.x+","+blockPos.z+") --- bytes["+currentIndex+"] ="+GameSettingSingleton.Instance.CurrentLoadedArena[currentIndex]+" ");
-
 				_myNetView.RPC ("DestroyBlock", RPCMode.All);
+
 			}
 			
 		}
@@ -57,11 +57,8 @@ public class DestroyBlockScript : MonoBehaviour {
 				int arenaHeight = GameSettingSingleton.Instance.CurrentLoadedArena[1];
 				Vector3 blockPos = this.transform.position;
 				int currentIndex = arenaWidth*(arenaHeight-(int)blockPos.z+1)+(int)blockPos.x;
-				Debug.Log("[OLD] block position ("+blockPos.x+","+blockPos.z+") --- bytes["+currentIndex+"] ="+GameSettingSingleton.Instance.CurrentLoadedArena[currentIndex]+" ");
 				GameSettingSingleton.Instance.CurrentLoadedArena[currentIndex] = byte.Parse("0");
-				Debug.Log("[NEW] block position ("+blockPos.x+","+blockPos.z+") --- bytes["+currentIndex+"] ="+GameSettingSingleton.Instance.CurrentLoadedArena[currentIndex]+" ");
-
-
+				GameSettingSingleton.Instance.BreakableBlockList.Remove(_myNetView.viewID);
 				_myNetView.RPC ("DestroyBlock", RPCMode.All);
 			}
 			
@@ -71,10 +68,7 @@ public class DestroyBlockScript : MonoBehaviour {
 	[RPC]
 	void DestroyBlock()
 	{
-
-			Debug.Log("Destroy Block : "+this.networkView.viewID);
 			Destroy (this.gameObject);
-
 	}
 	
 	

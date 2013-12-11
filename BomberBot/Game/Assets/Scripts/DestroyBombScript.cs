@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿/* Justine Sieye */
+
+using UnityEngine;
 using System.Collections;
 
 public class DestroyBombScript : MonoBehaviour {
@@ -80,6 +82,16 @@ public class DestroyBombScript : MonoBehaviour {
 						}
 					}
 				}
+			}
+		}
+		else
+		{
+			if(Network.peerType == NetworkPeerType.Disconnected)
+			{
+				_timeToLive -= Time.deltaTime;
+				
+				if (_timeToLive <= 0.0f) 
+					RPC_DestroyBomb();
 			}
 		}
 	}

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿/* Gardette Augustin */
+using UnityEngine;
 using System.Collections;
 
 public class ArenaSelectorArrowScript : MonoBehaviour {

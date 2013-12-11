@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿/* Gardette Augustin */
+
+using UnityEngine;
 using System.Collections;
 
 public class BomberBotAnimationScript : MonoBehaviour
@@ -68,9 +70,12 @@ public class BomberBotAnimationScript : MonoBehaviour
 	void Update ()
 	{
 
-		_animation["Walk"].speed = _animationSpeed;
 		if(Mathf.Abs(_tmpPosition.z - _transform.position.z)>0.1f || Mathf.Abs(_tmpPosition.x - _transform.position.x)>0.1f)
 		{
+			if(_animation["Walk"].speed != _animationSpeed)
+			{
+				_animation["Walk"].speed = _animationSpeed;
+			}
 			_animation.CrossFade("Walk");
 			_tmpPosition = _transform.position;
 		}
@@ -87,7 +92,6 @@ public class BomberBotAnimationScript : MonoBehaviour
 		{
 			if(col.transform.tag.Contains("Blast"))
 			{
-				Debug.Log("Should rest in peace");
 				_shouldBeDead = true;
 			}
 		}

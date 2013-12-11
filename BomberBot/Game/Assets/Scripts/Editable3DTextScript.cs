@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿/* Augustin Gardette */
+
+using UnityEngine;
 using System.Collections;
 
 public class Editable3DTextScript : MonoBehaviour {
@@ -109,11 +111,17 @@ public class Editable3DTextScript : MonoBehaviour {
 		}else
 			_textMesh.text = _textContent;
 
+		if(Input.GetMouseButtonDown(0) && _isEditing)
+		{
+			_isEditing = false;
+		}
+
 	}
 
 	void OnMouseUp()
 	{
-		_isEditing = !_isEditing;
+
+		_isEditing = true;
 		_cursorIndex = 0;
 
 	}

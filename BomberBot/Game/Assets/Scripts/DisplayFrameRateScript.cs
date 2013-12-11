@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿/* Augustin Gardette */
+
+using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(GUIText))]

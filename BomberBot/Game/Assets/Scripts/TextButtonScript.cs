@@ -1,3 +1,5 @@
+/* Augustin Gardette */
+
 using UnityEngine;
 using System.Collections;
 
@@ -59,7 +61,7 @@ public class TextButtonScript : MonoBehaviour {
 	void OnMouseUp()
 	{
 		GameSettingSingleton.Instance.CurrentMenuState = _actionButton;
-	
+		GameSettingSingleton.Instance.MenuStateHasChanged  = true;
 	}
 		
 }

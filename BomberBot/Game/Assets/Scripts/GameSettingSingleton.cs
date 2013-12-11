@@ -1,4 +1,5 @@
-
+/* Gardette Augustin */
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
@@ -97,7 +98,8 @@ public class GameSettingSingleton
 	}
 	
 	private MenuState currentMenuState;
-	
+
+
 	public MenuState CurrentMenuState
 	{
 		get {
@@ -105,6 +107,17 @@ public class GameSettingSingleton
 		}
 		set {
 			currentMenuState = value;
+		}
+	}
+
+	private bool menuStateHasChanged = false;
+
+	public bool MenuStateHasChanged {
+		get {
+			return menuStateHasChanged;
+		}
+		set {
+			menuStateHasChanged = value;
 		}
 	}
 
@@ -212,6 +225,17 @@ public class GameSettingSingleton
 		}
 	}
 
+	private Dictionary<NetworkViewID, Vector3> breakableBlockList = new Dictionary<NetworkViewID, Vector3>();
+
+	public Dictionary<NetworkViewID, Vector3> BreakableBlockList {
+		get {
+			return breakableBlockList;
+		}
+		set {
+			breakableBlockList = value;
+		}
+	}
+
 	private int maxPlayerNumber = 10;
 
 	public int MaxPlayerNumber 
@@ -260,15 +284,6 @@ public class GameSettingSingleton
 		}
 	}
 
-	private Resolution[] availableResolutions;
 
-	public Resolution[] AvailableResolutions {
-		get {
-			return availableResolutions;
-		}
-		set {
-			availableResolutions = value;
-		}
-	}
 
 }

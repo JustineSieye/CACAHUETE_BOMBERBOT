@@ -10,6 +10,7 @@ public class BomberBotAnimationScript : MonoBehaviour
 
 	public TextMesh _playerNameTextMesh;
 	public float _animationSpeed = 3.6f;
+	public float _curanimationSpeed = 3.6f;
 
 	private Vector3 _tmpPosition;
 	private Transform _transform;
@@ -66,7 +67,6 @@ public class BomberBotAnimationScript : MonoBehaviour
 	void Start ()
 	{
 		_transform = this.transform;
-
 		if(this.animation != null)
 		{
 			_animation = this.animation;
@@ -84,8 +84,7 @@ public class BomberBotAnimationScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-
-		if(Mathf.Abs(_tmpPosition.z - _transform.position.z)>0.1f || Mathf.Abs(_tmpPosition.x - _transform.position.x)>0.1f)
+		if(Mathf.Abs(_tmpPosition.z - _transform.position.z)>0.01f || Mathf.Abs(_tmpPosition.x - _transform.position.x)>0.01f)
 		{
 			if(_animation["Walk"].speed != _animationSpeed)
 			{
@@ -97,6 +96,7 @@ public class BomberBotAnimationScript : MonoBehaviour
 		else
 		{
 			_animation["Walk"].speed = 0f;
+
 		}
 		
 	}

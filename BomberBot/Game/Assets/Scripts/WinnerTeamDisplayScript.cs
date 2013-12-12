@@ -18,6 +18,7 @@ public class WinnerTeamDisplayScript : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		_winnerIndex = 0;
 		_myNetworkView = this.networkView;
 		this.renderer.enabled = false;
 	}

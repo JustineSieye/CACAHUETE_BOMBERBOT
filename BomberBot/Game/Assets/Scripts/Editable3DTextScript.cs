@@ -42,7 +42,7 @@ public class Editable3DTextScript : MonoBehaviour {
 
 				_cursorIndex--;
 				_cursorIndex = (_cursorIndex<0)?0:_cursorIndex;
-				Debug.Log("leftArrow " + _cursorIndex+" "+_textContent.Length);
+				//Debug.Log("leftArrow " + _cursorIndex+" "+_textContent.Length);
 			}
 			else
 			{
@@ -51,14 +51,14 @@ public class Editable3DTextScript : MonoBehaviour {
 
 					_cursorIndex++;
 					_cursorIndex = (_cursorIndex>_textContent.Length)?_textContent.Length:_cursorIndex;
-					Debug.Log("rightArrow " + _cursorIndex+" "+_textContent.Length);
+					//Debug.Log("rightArrow " + _cursorIndex+" "+_textContent.Length);
 
 				}
 				else
 				{
 					if(Input.GetKeyDown(KeyCode.Backspace))
 					{
-						Debug.Log("Backspace " + _cursorIndex+" "+_textContent.Length);
+						//Debug.Log("Backspace " + _cursorIndex+" "+_textContent.Length);
 						_cursorIndex--;
 						if(_cursorIndex<0)
 							_cursorIndex = 0;
@@ -69,7 +69,7 @@ public class Editable3DTextScript : MonoBehaviour {
 						}
 
 
-						Debug.Log("Backspace " + _cursorIndex+" "+_textContent.Length);
+						//Debug.Log("Backspace " + _cursorIndex+" "+_textContent.Length);
 					}
 					else
 					{
@@ -77,7 +77,7 @@ public class Editable3DTextScript : MonoBehaviour {
 						{
 							if(_textContent.Length>0)
 							{
-								Debug.Log("Delete " + _cursorIndex+" "+_textContent.Length);
+								//Debug.Log("Delete " + _cursorIndex+" "+_textContent.Length);
 								_textContent = _textContent.Remove(_cursorIndex,1);
 							}
 

@@ -57,7 +57,9 @@ public class BomberBotNetworkManagerScript : MonoBehaviour
 		var port = GameSettingSingleton.Instance.PortToUse;
 		var maxPlayer = GameSettingSingleton.Instance.MaxPlayerNumber;
 		Network.InitializeSecurity();
-		NetworkConnectionError error = Network.InitializeServer(maxPlayer,port,useNat);
+
+		Debug.Log(maxPlayer+" "+port+" "+ useNat);
+		NetworkConnectionError error = Network.InitializeServer(maxPlayer,port,false);
 
 		if(NetworkConnectionError.NoError != error){
 			GameSettingSingleton.Instance.CurrentMenuState = GameSettingSingleton.MenuState.serverMenu;
@@ -93,13 +95,13 @@ public class BomberBotNetworkManagerScript : MonoBehaviour
 	{
 	
 			GameSettingSingleton.Instance.CurrentMenuState = GameSettingSingleton.MenuState.clientMenu;
-			Application.LoadLevel("ClientMenu");
+			Application.LoadLevel("MainMenu");
 	
 	}
 
 	void OnDisconnectedFromServer(NetworkDisconnection info) {
 		GameSettingSingleton.Instance.CurrentMenuState = GameSettingSingleton.MenuState.clientMenu;
-		Application.LoadLevel("ClientMenu");
+		Application.LoadLevel("MainMenu");
 	}
 	
 }
